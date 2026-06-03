@@ -3,39 +3,60 @@ import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-
 import type { Header } from '@/payload-types'
-
-import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
+import Image from 'next/image'
+import { Menu, X } from 'lucide-react'
 
 interface HeaderClientProps {
   data: Header
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
-  /* Storing the value in a useState to avoid hydration errors */
   const [theme, setTheme] = useState<string | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string[]>([])
   const { headerTheme, setHeaderTheme } = useHeaderTheme()
   const pathname = usePathname()
 
   useEffect(() => {
     setHeaderTheme(null)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   useEffect(() => {
     if (headerTheme && headerTheme !== theme) setTheme(headerTheme)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-        </Link>
-        <HeaderNav data={data} />
+    <header
+      className="relative z-20 shadow-md bg-[linear-gradient(90deg,#0c2430,#081014)] text-white backdrop-blur-sm"
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
+      <div className="py-2 flex flex-col md:flex-row justify-between items-center px-4 container">
+        <div className="flex justify-between w-full md:w-auto items-center">
+          <Link href="/">
+            <Image
+              src="/images/logo.svg"
+              alt="Logo"
+              width={95}
+              height={72}
+              className="w-[95px] md:w-[95px]"
+            />
+          </Link>
+          <button
+            onClick={() => {
+              setMobileMenuOpen((current) => !current)
+              setOpenDropdown([])
+            }}
+            className="block md:hidden text-black bg-[#FFFFFF] rounded-md p-2"
+            aria-expanded={mobileMenuOpen}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+
+        <HeaderNav data={data} mobileMenuOpen={mobileMenuOpen} />
       </div>
     </header>
   )

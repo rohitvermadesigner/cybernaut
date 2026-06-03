@@ -22,6 +22,40 @@
   }
 }
 
+@layer components {
+  .triangle-cta {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #fff;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  
+  .triangle-cta::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--skyBlue);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transition: width 0.3s ease, height 0.3s ease, clip-path 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .triangle-cta > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .triangle-cta:hover::before {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
 @plugin "@tailwindcss/typography";
 
 @source inline("lg:col-span-4");
@@ -161,6 +195,9 @@
   --success: oklch(28% 0.1 200deg);
   --warning: oklch(35% 0.08 70deg);
   --error: oklch(45% 0.1 25deg);
+  --textPrimary:#373737;
+  --navyBlue:#251F5D;
+  --skyBlue:#1A98D5;
 }
 
 @theme inline {
