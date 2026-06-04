@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import type { CSSProperties } from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 const slideCount = 3
@@ -36,61 +37,71 @@ const collageBoxes = [
     src: '/images/hero/slide1-0.png',
     alt: 'IT support engineers in a server room',
     className: 'col-span-2 row-span-1',
-    imageClassName: 'object-[left_top]',
+    imageClassName: 'rounded-3xl',
+    direction: 'right',
   },
   {
     src: '/images/hero/slide1-1.png',
     alt: 'Security camera installation',
     className: 'col-span-1 row-span-1',
-    imageClassName: 'object-[34%_9%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'right',
   },
   {
     src: '/images/hero/slide1-2.png',
     alt: 'Security camera installation',
     className: 'col-span-1 row-span-1',
-    imageClassName: 'object-[34%_9%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'right',
   },
   {
     src: '/images/hero/slide1-3.png',
     alt: 'Helpdesk engineer monitoring systems',
     className: 'col-span-1 row-span-2',
-    imageClassName: 'object-left',
+    imageClassName: 'rounded-3xl',
+    direction: 'right',
   },
   {
     src: '/images/hero/slide1-4.png',
     alt: 'Data center infrastructure',
     className: 'col-span-2 row-span-1',
-    imageClassName: 'object-[68%_10%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'left',
   },
   {
     src: '/images/hero/slide1-5.png',
-    alt: 'Network cable maintenance',
+    alt: 'Dedicated IT support team',
     className: 'col-span-1 row-span-1',
-    imageClassName: 'object-[8%_92%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'right',
   },
   {
     src: '/images/hero/slide1-6.png',
-    alt: 'Dedicated IT support team',
+    alt: 'Network cable maintenance',
     className: 'col-span-1 row-span-1',
-    imageClassName: 'object-[52%_45%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'left',
   },
   {
     src: '/images/hero/slide1-7.png',
     alt: 'Server room technician',
     className: 'col-span-2 row-span-2',
-    imageClassName: 'object-[88%_50%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'left',
   },
   {
     src: '/images/hero/slide1-8.png',
     alt: 'Engineer checking network rack',
     className: 'col-span-1 row-span-1',
-    imageClassName: 'object-[18%_50%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'left',
   },
   {
     src: '/images/hero/slide1-9.png',
     alt: 'Infrastructure monitoring dashboard',
     className: 'col-span-2 row-span-1',
-    imageClassName: 'object-[53%_90%]',
+    imageClassName: 'rounded-3xl',
+    direction: 'left',
   },
 ]
 
@@ -151,19 +162,29 @@ const VideoPanel = ({
 const CollageImage = ({
   image,
   priority = false,
+  delay = 0,
 }: {
   image: (typeof collageBoxes)[number]
   priority?: boolean
+  delay?: number
 }) => (
-  <div className="relative overflow-hidden rounded-[24px]">
-    <Image
-      src={image.src}
-      alt={image.alt}
-      fill
-      priority={priority}
-      sizes="(min-width: 768px) 25vw, 50vw"
-      className={`object-cover ${image.imageClassName}`}
-    />
+  <div
+    className={`collage-card collage-card--${image.direction}`}
+    style={{ '--collage-delay': `${delay}ms` } as CSSProperties}
+  >
+    <div className="collage-card__inner">
+      <div className="collage-card__face collage-card__blank" aria-hidden="true" />
+      <div className="collage-card__face collage-card__image">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          priority={priority}
+          sizes="(min-width: 768px) 25vw, 50vw"
+          className={`object-cover ${image.imageClassName}`}
+        />
+      </div>
+    </div>
   </div>
 )
 
@@ -231,25 +252,25 @@ export const HeroSection = () => {
         aria-hidden={activeSlide !== 0}
       >
         <div className="grid h-60 gap-4 pt-4 px-4 md:grid-cols-[1fr_0.5fr_1fr_0.5fr]">
-          <CollageImage image={collageBoxes[0]} priority />
-          <CollageImage image={collageBoxes[1]} />
-          <CollageImage image={collageBoxes[2]} />
-          <CollageImage image={collageBoxes[3]} />
+          <CollageImage image={collageBoxes[0]} priority delay={0} />
+          <CollageImage image={collageBoxes[1]} delay={90} />
+          <CollageImage image={collageBoxes[2]} delay={180} />
+          <CollageImage image={collageBoxes[3]} delay={270} />
         </div>
 
         <div className="grid h-96 gap-4 pt-4 px-4 md:grid-cols-[0.5fr_1fr_0.5fr_1fr]">
-          <CollageImage image={collageBoxes[4]} />
-          <div className="col-span-2 flex items-center rounded-[24px] bg-[#121212] px-7 py-8 md:px-12 lg:px-16">
+          <CollageImage image={collageBoxes[4]} delay={360} />
+          <div className="hero-text-box col-span-2 flex items-center rounded-[24px] bg-[#121212] px-7 py-8 md:px-12 lg:px-16">
             <TextBox />
           </div>
-          <CollageImage image={collageBoxes[5]} />
+          <CollageImage image={collageBoxes[5]} delay={450} />
         </div>
 
         <div className="grid h-60 gap-4 p-4 md:grid-cols-[0.5fr_0.5fr_1fr_1fr]">
-          <CollageImage image={collageBoxes[6]} />
-          <CollageImage image={collageBoxes[7]} />
-          <CollageImage image={collageBoxes[8]} />
-          <CollageImage image={collageBoxes[9]} />
+          <CollageImage image={collageBoxes[6]} delay={540} />
+          <CollageImage image={collageBoxes[7]} delay={630} />
+          <CollageImage image={collageBoxes[8]} delay={720} />
+          <CollageImage image={collageBoxes[9]} delay={810} />
         </div>
       </div>
 
@@ -262,10 +283,18 @@ export const HeroSection = () => {
         aria-hidden={activeSlide !== 1}
       >
         <div className="grid h-full grid-cols-1 gap-5 bg-black p-4 md:grid-cols-2 lg:p-5">
-          <div className="relative min-h-[320px] overflow-hidden rounded-[26px] md:min-h-0">
+          <div
+            className={`relative min-h-[320px] overflow-hidden rounded-[26px] md:min-h-0 ${
+              activeSlide === 1 ? 'hero-split-panel hero-split-panel--top' : ''
+            }`}
+          >
             <VideoPanel mode="splitVideo" />
           </div>
-          <div className="flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24">
+          <div
+            className={`flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24 ${
+              activeSlide === 1 ? 'hero-split-panel hero-split-panel--bottom' : ''
+            }`}
+          >
             <TextBox2 />
           </div>
         </div>
@@ -279,12 +308,24 @@ export const HeroSection = () => {
         }`}
         aria-hidden={activeSlide !== 2}
       >
-        <div className="absolute inset-0">
+        <div className={`absolute inset-0 ${activeSlide === 2 ? 'hero-full-video' : ''}`}>
           <VideoPanel mode="backgroundVideo" />
         </div>
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,15,0.78),rgba(2,10,15,0.35),rgba(2,10,15,0.74))]" />
-        <div className="relative z-10 flex h-full items-center justify-center px-5">
+        <div
+          className={`absolute inset-0 bg-black/60 ${
+            activeSlide === 2 ? 'hero-full-video-overlay' : ''
+          }`}
+        />
+        <div
+          className={`absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,15,0.78),rgba(2,10,15,0.35),rgba(2,10,15,0.74))] ${
+            activeSlide === 2 ? 'hero-full-video-overlay' : ''
+          }`}
+        />
+        <div
+          className={`relative z-10 flex h-full items-center justify-center px-5 ${
+            activeSlide === 2 ? 'hero-full-video-caption' : ''
+          }`}
+        >
           <TextBox2 centered />
         </div>
       </div>
