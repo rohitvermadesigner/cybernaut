@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 const slideCount = 3
@@ -11,15 +12,21 @@ const heroCopy = {
     'IT solutions and support that keeps your business shielded from worrying about digital downtime.',
 }
 
+const heroCopy2 = {
+  title: 'We handle the tech, while you accelerate your business.',
+  description:
+    'Right from phone systems to internet security to workplace IT solutions, our Cybernauts take care of the tech side so your business can run on lightening speed.',
+}
+
 const videoAssets = {
   splitVideo: {
-    mp4: '/videos/helpdesk-left.mp4',
-    webm: '/videos/helpdesk-left.webm',
-    poster: '/images/hero-slide-2.png',
+    mp4: '/images/hero/hero.mp4',
+    webm: '/images/hero/hero.webm',
+    poster: '/images/hero-slide-3.png',
   },
   backgroundVideo: {
-    mp4: '/videos/helpdesk-background.mp4',
-    webm: '/videos/helpdesk-background.webm',
+    mp4: '/images/hero/hero.mp4',
+    webm: '/images/hero/hero.webm',
     poster: '/images/hero-slide-1.png',
   },
 }
@@ -95,6 +102,24 @@ const TextBox = ({ centered = false }: { centered?: boolean }) => (
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
       {heroCopy.description}
     </p>
+  </div>
+)
+
+const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
+  <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
+    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem]">
+      {heroCopy2.title}
+    </h1>
+    <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
+      {heroCopy2.description}
+    </p>
+    <Link
+      href="about"
+      target="_blank"
+      className="triangle-cta text-white py-3 px-6 block mt-4 inline-block mt-8"
+    >
+      <span className="flex items-center gap-2">Know More</span>
+    </Link>
   </div>
 )
 
@@ -205,14 +230,14 @@ export const HeroSection = () => {
         }`}
         aria-hidden={activeSlide !== 0}
       >
-        <div className="grid h-60 gap-4 bg-black p-4 md:grid-cols-4">
+        <div className="grid h-60 gap-4 pt-4 px-4 md:grid-cols-[1fr_0.5fr_1fr_0.5fr]">
           <CollageImage image={collageBoxes[0]} priority />
           <CollageImage image={collageBoxes[1]} />
           <CollageImage image={collageBoxes[2]} />
           <CollageImage image={collageBoxes[3]} />
         </div>
 
-        <div className="grid h-96 gap-4 bg-black p-4 md:grid-cols-4">
+        <div className="grid h-96 gap-4 pt-4 px-4 md:grid-cols-[0.5fr_1fr_0.5fr_1fr]">
           <CollageImage image={collageBoxes[4]} />
           <div className="col-span-2 flex items-center rounded-[24px] bg-[#121212] px-7 py-8 md:px-12 lg:px-16">
             <TextBox />
@@ -220,7 +245,7 @@ export const HeroSection = () => {
           <CollageImage image={collageBoxes[5]} />
         </div>
 
-        <div className="grid h-60 gap-4 bg-black p-4 md:grid-cols-4">
+        <div className="grid h-60 gap-4 p-4 md:grid-cols-[0.5fr_0.5fr_1fr_1fr]">
           <CollageImage image={collageBoxes[6]} />
           <CollageImage image={collageBoxes[7]} />
           <CollageImage image={collageBoxes[8]} />
@@ -240,8 +265,8 @@ export const HeroSection = () => {
           <div className="relative min-h-[320px] overflow-hidden rounded-[26px] md:min-h-0">
             <VideoPanel mode="splitVideo" />
           </div>
-          <div className="flex items-center rounded-[26px] bg-[radial-gradient(circle_at_15%_0%,rgba(35,116,132,0.24),transparent_35%),#111] px-8 py-12 md:px-14 lg:px-24">
-            <TextBox />
+          <div className="flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24">
+            <TextBox2 />
           </div>
         </div>
       </div>
@@ -260,23 +285,8 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,15,0.78),rgba(2,10,15,0.35),rgba(2,10,15,0.74))]" />
         <div className="relative z-10 flex h-full items-center justify-center px-5">
-          <TextBox centered />
+          <TextBox2 centered />
         </div>
-      </div>
-
-      <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/45 px-3 py-2 backdrop-blur-md">
-        {Array.from({ length: slideCount }).map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => setActiveSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === activeSlide ? 'w-8 bg-white' : 'w-2 bg-white/45 hover:bg-white/70'
-            }`}
-            aria-label={`Show hero slide ${index + 1}`}
-            aria-current={index === activeSlide ? 'true' : undefined}
-          />
-        ))}
       </div>
 
       <div className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-3 md:flex">
