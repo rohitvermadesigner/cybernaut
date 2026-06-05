@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import { Roboto_Condensed } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
@@ -16,16 +16,42 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+const graphie = localFont({
+  src: [
+    {
+      path: '../../../public/fonts/graphie-extraLight.otf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../../../public/fonts/graphie-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-body',
+})
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  weight: ['400', '500', '600', '700'],
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(graphie.variable, robotoCondensed.variable)}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className="bg-[url('/images/bg.png')] bg-repeat">
+      <body className="bg-[url('/images/bg.png')] bg-repeat bg-fixed">
         <InitTheme />
         <Providers>
           <AdminBar

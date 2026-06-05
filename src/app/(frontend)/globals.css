@@ -22,6 +22,12 @@
   }
 }
 
+@layer utilities {
+  .font-roboto-condensed {
+    font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+  }
+}
+
 @layer components {
   .triangle-cta {
     position: relative;
@@ -144,18 +150,19 @@
   }
 
   .about-slide-two-background {
-    width: 405px;
-    height: 384px;
-    border-radius: 32px;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 380px;
-    background: none;
-    border: 2px solid #fff;
-    animation: about-slide-two-background-enter 2s ease-out forwards;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: translateY(140px) scale(0.20, 0.70);
+    transform-origin: center;
+    animation: about-slide-two-background-enter 0.8s ease-out forwards;
+  }
+
+  .about-slide-two-background--exit {
+    animation: about-slide-two-background-exit 0.8s ease-out forwards;
   }
 
   .about-value-card {
@@ -179,8 +186,8 @@
   }
 
   .about-moving-card--intro {
-    left: 83.333%;
-    top: 50%;
+    left: 50%;
+    top: 62%;
     width: min(28vw, 390px);
     height: 480px;
     transform: translate(-50%, -50%);
@@ -289,28 +296,21 @@
 
 @keyframes about-slide-two-background-enter {
   0% {
-    width: 405px;
-    height: 384px;
-    border-radius: 32px;
-    margin-top: 380px;
-    background: none;
-    border: 2px solid #fff;
+    transform: translateY(140px) scale(0.20, 0.70);
   }
-  40% {
-    width: 405px;
-    height: 384px;
-    border-radius: 32px;
-    margin-top: 380px;
-    background: none;
-    border: 2px solid #fff;
-  }
+
   100% {
-    width: 100%;
-    height: 100%;
-    border-radius: 0px;
-    margin-top: 0px;
-    background: #fff;
-    border: 2px solid #fff;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes about-slide-two-background-exit {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(140px) scale(0.20, 0.70);
   }
 }
 
@@ -376,7 +376,7 @@
 @media (max-width: 1023px) {
   .about-moving-card--intro {
     left: 50%;
-    top: 76%;
+    top: 68%;
     width: 220px;
     height: 280px;
   }
@@ -411,7 +411,7 @@
   --breakpoint-xl: 80rem;
   --breakpoint-2xl: 86rem;
   --font-mono: var(--font-geist-mono);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -583,6 +583,7 @@
   }
   body {
     @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+    font-family: var(--font-body);
   }
 }
 

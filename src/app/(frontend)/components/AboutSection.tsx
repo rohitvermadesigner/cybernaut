@@ -10,20 +10,21 @@ const aboutSlides = 2
 const values = [
   {
     image: '/images/about/expertise.png',
-    title: 'Proactive by design',
+    title: 'Expertise',
     description:
-      'We spot risks early, solve issues quickly, and keep your team moving without disruption.',
+      'We know our way around the IT services world and we understand the difference between a...',
   },
   {
     image: '/images/about/client-centric.png',
-    title: 'Client-centric',
+    title: 'Client-Centric',
     description:
-      'Every solution begins with your people, your goals, and the way your business works.',
+      'If the solution doesn’t fit, you must rethink. Our team understands the pace and rhythm that...',
   },
   {
     image: '/images/about/cost-effective.png',
-    title: 'Built for momentum',
-    description: 'Scalable technology gives your business the confidence to grow at its own speed.',
+    title: 'Cost-Effective',
+    description:
+      'Overspending on IT support are now yesteryear problems. In the 21st century, good IT support...',
   },
 ]
 
@@ -31,7 +32,9 @@ const movingValue = values[1]
 
 export const AboutSection = () => {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [isSlideTwoExiting, setIsSlideTwoExiting] = useState(false)
   const activeSlideRef = useRef(activeSlide)
+  const exitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const wheelLockRef = useRef(false)
   const sectionRef = useRef<HTMLElement | null>(null)
 
@@ -40,11 +43,35 @@ export const AboutSection = () => {
   }, [activeSlide])
 
   const goToSlide = useCallback((direction: 1 | -1) => {
-    const nextSlide = Math.min(Math.max(activeSlideRef.current + direction, 0), aboutSlides - 1)
+    const currentSlide = activeSlideRef.current
+    const nextSlide = Math.min(Math.max(currentSlide + direction, 0), aboutSlides - 1)
 
-    if (nextSlide !== activeSlideRef.current) {
+    if (nextSlide !== currentSlide) {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current)
+        exitTimeoutRef.current = null
+      }
+
+      if (currentSlide === 1 && nextSlide === 0) {
+        setIsSlideTwoExiting(true)
+        exitTimeoutRef.current = setTimeout(() => {
+          setIsSlideTwoExiting(false)
+          exitTimeoutRef.current = null
+        }, 800)
+      } else {
+        setIsSlideTwoExiting(false)
+      }
+
       activeSlideRef.current = nextSlide
       setActiveSlide(nextSlide)
+    }
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      if (exitTimeoutRef.current) {
+        clearTimeout(exitTimeoutRef.current)
+      }
     }
   }, [])
 
@@ -82,7 +109,7 @@ export const AboutSection = () => {
     <section
       ref={sectionRef}
       aria-label="About Cybernaut"
-      className="relative h-[calc(100vh-88px)] min-h-[720px] overflow-hidden text-[#FFF]"
+      className="relative h-[calc(100vh-88px)] min-h-[720px] overflow-hidden text-[#FFF] bg-[url('/images/bg.png')]"
     >
       <div
         className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -92,99 +119,115 @@ export const AboutSection = () => {
         }`}
         aria-hidden={activeSlide !== 0}
       >
-        <div className="container grid h-full items-center gap-12 py-16 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.3em] text-[var(--skyBlue)]">
+        <div className="container flex h-full flex-col justify-center py-16">
+          <div className="text-center">
+            <p className="mb-5 text-2xl font-bold uppercase text-[var(--skyBlue)] font-extralight">
               About Cybernaut
             </p>
-            <h2 className="max-w-4xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl lg:text-6xl">
+            <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl font-roboto-condensed">
               Safeguarding your business against downtime and cyber threats.
             </h2>
-            <div className="mt-8 max-w-3xl space-y-5 text-lg leading-8">
-              <p>
+          </div>
+
+          <div className="mt-12 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,390px)_minmax(0,1fr)]">
+            <div className="text-lg leading-8 mt-24">
+              <p className="text-3xl font-thin tracking-wider">
+                Helping them stay on course while we take care of the blinking router side of your
+                operations in the background.
+              </p>
+            </div>
+
+            <div className="relative mx-auto h-[480px] w-full max-w-[390px]" aria-hidden="true" />
+
+            <div className="text-lg leading-8 mt-24 ml-10 ">
+              <p className="font-thin tracking-wider">
                 We understand that a lot of time and energy is lost to IT issues that shouldn’t have
                 flared up in the first place. To thrive in a digital-first ecosystem, Cybernaut
                 becomes your ace in the hole. A leading IT Company in Dubai, Cybernaut has designed
                 IT solutions with a belief that productivity and continuity keeps your business on
                 track.
               </p>
+              <Link
+                href="about"
+                target="_blank"
+                className="triangle-cta text-white py-3 px-6 mt-8 inline-block"
+              >
+                <span className="flex items-center gap-2">Know More</span>
+              </Link>
             </div>
-            <Link
-              href="about"
-              target="_blank"
-              className="triangle-cta text-white py-3 px-6 block mt-4 inline-block mt-8"
-            >
-              <span className="flex items-center gap-2">Know More</span>
-            </Link>
-          </div>
-
-          <div className="flex h-full items-center justify-center lg:col-span-4">
-            <div className="relative h-[480px] w-full max-w-[390px]" aria-hidden="true" />
           </div>
         </div>
       </div>
 
       <div
         className={`absolute inset-0 transition-all duration-700 ease-out ${
-          activeSlide === 1
+          activeSlide === 1 || isSlideTwoExiting
             ? 'z-10 opacity-100'
             : 'pointer-events-none z-0 translate-x-10 opacity-0'
-        }`}
+        } ${isSlideTwoExiting ? 'pointer-events-none' : ''}`}
         aria-hidden={activeSlide !== 1}
       >
         <div
-          className={`absolute inset-0 ${activeSlide === 1 ? 'about-slide-two-background' : ''}`}
+          className={`absolute inset-0 ${
+            activeSlide === 1
+              ? 'about-slide-two-background'
+              : isSlideTwoExiting
+                ? 'about-slide-two-background about-slide-two-background--exit'
+                : ''
+          }`}
           aria-hidden="true"
         />
-        <div className="container relative z-10 flex h-full flex-col justify-center py-12">
-          <div className={`text-center ${activeSlide === 1 ? 'about-values-copy' : ''}`}>
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#1a98d5]">
-              How We Work
-            </p>
-            <h2 className="mx-auto max-w-4xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl text-black">
-              Human-first IT, built around your ambitions.
-            </h2>
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-black">
-              Our approach combines attentive support, forward-thinking strategy, and technology
-              that adapts as your business evolves.
-            </p>
-          </div>
+        {activeSlide === 1 && (
+          <div className="container relative z-10 flex h-full flex-col py-12">
+            <div className="text-center about-values-copy">
+              <p className="mb-4 text-2xl uppercase text-[#000] font-extralight">CORE VALUES</p>
+              <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl text-black font-roboto-condensed">
+                What Makes Cybernaut Different
+              </h2>
+              <p className="mx-auto max-w-3xl text-xl text-gray-800 ">
+                Our dedicated IT helpdesk professionals ensure uninterrupted functioning of <br />
+                your digital infrastructure.
+              </p>
+            </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3 lg:gap-8">
-            {values.map((value, index) =>
-              index === 1 ? (
-                <div key={value.title} aria-hidden="true" />
-              ) : (
-                <article
-                  key={value.title}
-                  className={`about-value-card rounded-[28px] bg-gray-500 p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
-                    activeSlide === 1 ? 'about-value-card--active' : ''
-                  }`}
-                  style={{ '--about-card-delay': `${index * 120}ms` } as CSSProperties}
-                >
-                  <div className="relative h-52 overflow-hidden rounded-[22px]">
-                    <Image
-                      src={value.image}
-                      alt={value.title}
-                      fill
-                      sizes="(min-width: 768px) 30vw, 90vw"
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="px-2 pb-3 pt-6">
-                    <h3 className="text-2xl font-bold text-[#fff]">{value.title}</h3>
-                    <p className="mt-3 leading-7 text-[#fff]">{value.description}</p>
-                  </div>
-                </article>
-              ),
-            )}
+            <div className="mt-2 grid gap-6 md:grid-cols-3 lg:gap-8 p-24">
+              {values.map((value, index) =>
+                index === 1 ? (
+                  <div key={value.title} aria-hidden="true" />
+                ) : (
+                  <article
+                    key={value.title}
+                    className="about-value-card about-value-card--active rounded-[14px] bg-[url(/images/bg.png)] bg-[center_top_-200px] py-10 px-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] w-[90%] mx-auto border-4 border-[#ccc]"
+                    style={{ '--about-card-delay': `${index * 120}ms` } as CSSProperties}
+                  >
+                    <div className="relative h-52 overflow-hidden rounded-[22px]">
+                      <Image
+                        src={value.image}
+                        alt={value.title}
+                        fill
+                        sizes="(min-width: 768px) 30vw, 90vw"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="px-2 pb-3 pt-6 text-center">
+                      <h3 className="text-2xl font-medium text-[#fff]">{value.title}</h3>
+                      <p className="mt-3 text-[#fff] font-thin tracking-wider">
+                        {value.description}
+                      </p>
+                    </div>
+                  </article>
+                ),
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <article
-        className={`about-moving-card pointer-events-none absolute z-20 rounded-[28px] bg-gray-500 p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
-          activeSlide === 1 ? 'about-moving-card--details' : 'about-moving-card--intro'
+        className={`about-moving-card pointer-events-none absolute z-20 rounded-[14px] bg-[url(/images/about/card-bg.png)] border-4 border-[#ccc] p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
+          activeSlide === 1
+            ? 'about-moving-card--details bg-[url(/images/bg.png)] bg-[center_top_-200px] py-10 px-5 w-80 h-[30rem] -mt-20'
+            : 'about-moving-card--intro w-96 h-[40rem] mt-16 bg-[url(/images/about/card-bg.png)]'
         }`}
       >
         <div className="about-moving-card__image relative overflow-hidden rounded-[22px]">
@@ -197,9 +240,9 @@ export const AboutSection = () => {
             className="object-contain"
           />
         </div>
-        <div className="about-moving-card__copy px-2 pb-3 pt-6">
-          <h3 className="text-2xl font-bold text-[#fff]">{movingValue.title}</h3>
-          <p className="mt-3 leading-7 text-[#fff]">{movingValue.description}</p>
+        <div className="about-moving-card__copy px-2 pb-3 pt-6 text-center">
+          <h3 className="text-2xl font-bold text-[#fff] font-medium">{movingValue.title}</h3>
+          <p className="mt-3 text-[#fff] font-thin tracking-wider">{movingValue.description}</p>
         </div>
       </article>
 
