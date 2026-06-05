@@ -15,11 +15,10 @@ const values = [
       'We spot risks early, solve issues quickly, and keep your team moving without disruption.',
   },
   {
-    image: null,
+    image: '/images/about/client-centric.png',
     title: 'Client-centric',
     description:
       'Every solution begins with your people, your goals, and the way your business works.',
-    featured: true,
   },
   {
     image: '/images/about/cost-effective.png',
@@ -27,6 +26,8 @@ const values = [
     description: 'Scalable technology gives your business the confidence to grow at its own speed.',
   },
 ]
+
+const movingValue = values[1]
 
 export const AboutSection = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -81,7 +82,7 @@ export const AboutSection = () => {
     <section
       ref={sectionRef}
       aria-label="About Cybernaut"
-      className="relative h-[calc(100vh-88px)] min-h-[720px] overflow-hidden bg-black text-[#FFF]"
+      className="relative h-[calc(100vh-88px)] min-h-[720px] overflow-hidden text-[#FFF]"
     >
       <div
         className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -97,16 +98,15 @@ export const AboutSection = () => {
               About Cybernaut
             </p>
             <h2 className="max-w-4xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl lg:text-6xl">
-              Technology that keeps your business moving forward.
+              Safeguarding your business against downtime and cyber threats.
             </h2>
             <div className="mt-8 max-w-3xl space-y-5 text-lg leading-8">
               <p>
-                Cybernaut delivers dependable IT solutions and support for businesses that want
-                technology to feel simple, secure, and ready for what comes next.
-              </p>
-              <p>
-                From everyday support to long-term strategy, our team works alongside yours to
-                reduce downtime, strengthen operations, and create space for growth.
+                We understand that a lot of time and energy is lost to IT issues that shouldn’t have
+                flared up in the first place. To thrive in a digital-first ecosystem, Cybernaut
+                becomes your ace in the hole. A leading IT Company in Dubai, Cybernaut has designed
+                IT solutions with a belief that productivity and continuity keeps your business on
+                track.
               </p>
             </div>
             <Link
@@ -133,9 +133,7 @@ export const AboutSection = () => {
         aria-hidden={activeSlide !== 1}
       >
         <div
-          className={`absolute inset-0 bg-white ${
-            activeSlide === 1 ? 'about-slide-two-background' : ''
-          }`}
+          className={`absolute inset-0 ${activeSlide === 1 ? 'about-slide-two-background' : ''}`}
           aria-hidden="true"
         />
         <div className="container relative z-10 flex h-full flex-col justify-center py-12">
@@ -153,49 +151,57 @@ export const AboutSection = () => {
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3 lg:gap-8">
-            {values.map((value, index) => (
-              <article
-                key={value.title}
-                className={`about-value-card rounded-[28px] bg-gray-500 p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
-                  value.featured ? 'about-value-card--featured' : ''
-                } ${activeSlide === 1 ? 'about-value-card--active' : ''}`}
-                style={{ '--about-card-delay': `${index * 120}ms` } as CSSProperties}
-              >
-                <div className="relative h-52 overflow-hidden rounded-[22px]">
-                  {value.image && (
+            {values.map((value, index) =>
+              index === 1 ? (
+                <div key={value.title} aria-hidden="true" />
+              ) : (
+                <article
+                  key={value.title}
+                  className={`about-value-card rounded-[28px] bg-gray-500 p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
+                    activeSlide === 1 ? 'about-value-card--active' : ''
+                  }`}
+                  style={{ '--about-card-delay': `${index * 120}ms` } as CSSProperties}
+                >
+                  <div className="relative h-52 overflow-hidden rounded-[22px]">
                     <Image
                       src={value.image}
                       alt={value.title}
                       fill
                       sizes="(min-width: 768px) 30vw, 90vw"
-                      className=""
+                      className="object-contain"
                     />
-                  )}
-                </div>
-                <div className="px-2 pb-3 pt-6">
-                  <h3 className="text-2xl font-bold text-[#fff]">{value.title}</h3>
-                  <p className="mt-3 leading-7 text-[#fff]">{value.description}</p>
-                </div>
-              </article>
-            ))}
+                  </div>
+                  <div className="px-2 pb-3 pt-6">
+                    <h3 className="text-2xl font-bold text-[#fff]">{value.title}</h3>
+                    <p className="mt-3 leading-7 text-[#fff]">{value.description}</p>
+                  </div>
+                </article>
+              ),
+            )}
           </div>
         </div>
       </div>
 
-      <div
-        className={`about-client-visual pointer-events-none absolute z-20 ${
-          activeSlide === 1 ? 'about-client-visual--card' : 'about-client-visual--intro'
+      <article
+        className={`about-moving-card pointer-events-none absolute z-20 rounded-[28px] bg-gray-500 p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
+          activeSlide === 1 ? 'about-moving-card--details' : 'about-moving-card--intro'
         }`}
       >
-        <Image
-          src="/images/about/client-centric.png"
-          alt="Cybernaut client-centric astronaut"
-          fill
-          priority
-          sizes="(min-width: 1024px) 33vw, 70vw"
-          className="object-contain"
-        />
-      </div>
+        <div className="about-moving-card__image relative overflow-hidden rounded-[22px]">
+          <Image
+            src={movingValue.image}
+            alt={movingValue.title}
+            fill
+            priority
+            sizes="(min-width: 1024px) 30vw, 70vw"
+            className="object-contain"
+          />
+        </div>
+        <div className="about-moving-card__copy px-2 pb-3 pt-6">
+          <h3 className="text-2xl font-bold text-[#fff]">{movingValue.title}</h3>
+          <p className="mt-3 leading-7 text-[#fff]">{movingValue.description}</p>
+        </div>
+      </article>
 
       <div className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-3 md:flex">
         {Array.from({ length: aboutSlides }).map((_, index) => (
