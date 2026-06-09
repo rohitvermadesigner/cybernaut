@@ -227,7 +227,7 @@ export const AboutSection = () => {
         className={`about-moving-card pointer-events-none absolute z-20 rounded-[14px] bg-[url(/images/about/card-bg.png)] border-4 border-[#ccc] p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
           activeSlide === 1
             ? 'about-moving-card--details bg-[url(/images/bg.png)] bg-[center_top_-200px] py-10 px-5 w-80 h-[30rem] -mt-20'
-            : 'about-moving-card--intro w-96 h-[40rem] mt-16 bg-[url(/images/about/card-bg.png)]'
+            : 'about-moving-card--intro w-96 h-[40rem] mt-16 bg-[url(/images/about/card-bg.png)] px-16'
         }`}
       >
         <div className="about-moving-card__image relative overflow-hidden rounded-[22px]">

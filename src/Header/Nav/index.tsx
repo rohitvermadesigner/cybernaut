@@ -14,7 +14,7 @@ export const HeaderNav: React.FC<{ data: HeaderType; mobileMenuOpen: boolean }> 
   return (
     <>
       <nav
-        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row md:gap-8 md:items-center w-full md:w-auto`}
+        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row md:gap-8 md:items-center w-full md:w-auto mt-4 md:mt-0`}
       >
         {navItems.map(({ link }, i) => {
           return (
@@ -43,7 +43,7 @@ export const HeaderNav: React.FC<{ data: HeaderType; mobileMenuOpen: boolean }> 
           )
         })}
       </nav>
-      <ul className={`${mobileMenuOpen ? 'block' : 'hidden'} flex md:flex gap-4 mt-3 md:mt-0`}>
+      <ul className={` hidden md:block flex md:flex gap-4 mt-3 md:mt-0`}>
         <li>
           <Link
             href="https://wa.me/97145570410"

@@ -29,7 +29,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header
-      className="relative z-20 shadow-md bg-[linear-gradient(90deg,#0c2430,#081014)] text-white backdrop-blur-sm"
+      className="sticky top-0 z-100 shadow-md bg-[linear-gradient(90deg,rgba(12,36,48,0.8),rgba(8,16,20,0.8))] text-white backdrop-blur-sm"
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="py-2 flex flex-col md:flex-row justify-between items-center px-4 container">
@@ -38,22 +38,35 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             <Image
               src="/images/logo.svg"
               alt="Logo"
-              width={95}
-              height={72}
-              className="w-[95px] md:w-[95px]"
+              width={70}
+              height={53}
+              className="w-[70px] md:w-[95px]"
             />
           </Link>
-          <button
-            onClick={() => {
-              setMobileMenuOpen((current) => !current)
-              setOpenDropdown([])
-            }}
-            className="block md:hidden text-black bg-[#FFFFFF] rounded-md p-2"
-            aria-expanded={mobileMenuOpen}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-4">
+            <ul className={` block md:hidden  flex md:flex gap-4 mt-2 md:mt-0`}>
+              <li>
+                <Link
+                  href="https://wa.me/97145570410"
+                  target="_blank"
+                  className="triangle-cta text-white py-2 px-4 block text-sm"
+                >
+                  <span className="flex items-center gap-2">Get Started</span>
+                </Link>
+              </li>
+            </ul>
+            <button
+              onClick={() => {
+                setMobileMenuOpen((current) => !current)
+                setOpenDropdown([])
+              }}
+              className="block md:hidden text-white"
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         <HeaderNav data={data} mobileMenuOpen={mobileMenuOpen} />
