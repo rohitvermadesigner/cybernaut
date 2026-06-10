@@ -134,6 +134,45 @@ const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
   </div>
 )
 
+const MobileHero = () => (
+  <section
+    aria-label="Dedicated IT helpdesk mobile hero"
+    className="relative overflow-hidden bg-black text-white md:hidden"
+    style={{ minHeight: 'calc(100svh - 72px)' }}
+  >
+    <div className="absolute inset-0">
+      <VideoPanel mode="backgroundVideo" />
+    </div>
+    <div className="absolute inset-0 bg-black/28" />
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 42%, rgba(0,0,0,0.78) 100%)',
+      }}
+    />
+
+    <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-5 pb-24 pt-20 text-center">
+      <div className="mx-auto max-w-[420px]">
+        <h1 className="font-roboto-condensed text-[2rem] font-extrabold uppercase leading-tight tracking-normal text-white">
+          Our dedicated IT helpdesk
+        </h1>
+        <p className="mx-auto mt-3 max-w-[390px] text-[1.28rem] leading-8 text-white/88">
+          Our dedicated IT helpdesk professionals ensure uninterrupted functioning of your digital
+          infrastructure.
+        </p>
+        <Link
+          href="about"
+          target="_blank"
+          className="triangle-cta mt-7 inline-block px-7 py-3 text-base font-medium text-white"
+        >
+          <span>Know More</span>
+        </Link>
+      </div>
+    </div>
+  </section>
+)
+
 const VideoPanel = ({
   className = '',
   mode,
@@ -238,111 +277,114 @@ export const HeroSection = () => {
   }, [goToSlide])
 
   return (
-    <section
-      ref={sectionRef}
-      aria-label="Dedicated IT helpdesk hero slides"
-      className="relative h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white"
-    >
-      <div
-        className={`absolute inset-0 transition-all duration-700 ease-out ${
-          activeSlide === 0
-            ? 'z-10 opacity-100 scale-100'
-            : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
-        }`}
-        aria-hidden={activeSlide !== 0}
+    <>
+      <MobileHero />
+      <section
+        ref={sectionRef}
+        aria-label="Dedicated IT helpdesk hero slides"
+        className="relative hidden h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white md:block"
       >
-        <div className="grid h-60 gap-4 pt-4 px-4 md:grid-cols-[1fr_0.5fr_1fr_0.5fr]">
-          <CollageImage image={collageBoxes[0]} priority delay={0} />
-          <CollageImage image={collageBoxes[1]} delay={90} />
-          <CollageImage image={collageBoxes[2]} delay={180} />
-          <CollageImage image={collageBoxes[3]} delay={270} />
-        </div>
-
-        <div className="grid h-96 gap-4 pt-4 px-4 md:grid-cols-[0.5fr_1fr_0.5fr_1fr]">
-          <CollageImage image={collageBoxes[4]} delay={360} />
-          <div className="hero-text-box col-span-2 flex items-center rounded-[24px] bg-[#121212] px-7 py-8 md:px-12 lg:px-16">
-            <TextBox />
-          </div>
-          <CollageImage image={collageBoxes[5]} delay={450} />
-        </div>
-
-        <div className="grid h-60 gap-4 p-4 md:grid-cols-[0.5fr_0.5fr_1fr_1fr]">
-          <CollageImage image={collageBoxes[6]} delay={540} />
-          <CollageImage image={collageBoxes[7]} delay={630} />
-          <CollageImage image={collageBoxes[8]} delay={720} />
-          <CollageImage image={collageBoxes[9]} delay={810} />
-        </div>
-      </div>
-
-      <div
-        className={`absolute inset-0 transition-all duration-700 ease-out ${
-          activeSlide === 1
-            ? 'z-10 opacity-100 scale-100'
-            : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
-        }`}
-        aria-hidden={activeSlide !== 1}
-      >
-        <div className="grid h-full grid-cols-1 gap-5 bg-black p-4 md:grid-cols-2 lg:p-5">
-          <div
-            className={`relative min-h-[320px] overflow-hidden rounded-[26px] md:min-h-0 ${
-              activeSlide === 1 ? 'hero-split-panel hero-split-panel--top' : ''
-            }`}
-          >
-            <VideoPanel mode="splitVideo" />
-          </div>
-          <div
-            className={`flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24 ${
-              activeSlide === 1 ? 'hero-split-panel hero-split-panel--bottom' : ''
-            }`}
-          >
-            <TextBox2 />
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={`absolute inset-0 transition-all duration-700 ease-out ${
-          activeSlide === 2
-            ? 'z-10 opacity-100 scale-100'
-            : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
-        }`}
-        aria-hidden={activeSlide !== 2}
-      >
-        <div className={`absolute inset-0 ${activeSlide === 2 ? 'hero-full-video' : ''}`}>
-          <VideoPanel mode="backgroundVideo" />
-        </div>
         <div
-          className={`absolute inset-0 bg-black/60 ${
-            activeSlide === 2 ? 'hero-full-video-overlay' : ''
+          className={`absolute inset-0 transition-all duration-700 ease-out ${
+            activeSlide === 0
+              ? 'z-10 opacity-100 scale-100'
+              : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
           }`}
-        />
-        <div
-          className={`absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,15,0.78),rgba(2,10,15,0.35),rgba(2,10,15,0.74))] ${
-            activeSlide === 2 ? 'hero-full-video-overlay' : ''
-          }`}
-        />
-        <div
-          className={`relative z-10 flex h-full items-center justify-center px-5 ${
-            activeSlide === 2 ? 'hero-full-video-caption' : ''
-          }`}
+          aria-hidden={activeSlide !== 0}
         >
-          <TextBox2 centered />
-        </div>
-      </div>
+          <div className="grid h-60 gap-4 pt-4 px-4 md:grid-cols-[1fr_0.5fr_1fr_0.5fr]">
+            <CollageImage image={collageBoxes[0]} priority delay={0} />
+            <CollageImage image={collageBoxes[1]} delay={90} />
+            <CollageImage image={collageBoxes[2]} delay={180} />
+            <CollageImage image={collageBoxes[3]} delay={270} />
+          </div>
 
-      <div className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-3 md:flex">
-        {Array.from({ length: slideCount }).map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => setActiveSlide(index)}
-            className={`h-10 w-[3px] rounded-full transition-colors duration-300 ${
-              index === activeSlide ? 'bg-[#38bdf8]' : 'bg-white/25 hover:bg-white/60'
+          <div className="grid h-96 gap-4 pt-4 px-4 md:grid-cols-[0.5fr_1fr_0.5fr_1fr]">
+            <CollageImage image={collageBoxes[4]} delay={360} />
+            <div className="hero-text-box col-span-2 flex items-center rounded-[24px] bg-[#121212] px-7 py-8 md:px-12 lg:px-16">
+              <TextBox />
+            </div>
+            <CollageImage image={collageBoxes[5]} delay={450} />
+          </div>
+
+          <div className="grid h-60 gap-4 p-4 md:grid-cols-[0.5fr_0.5fr_1fr_1fr]">
+            <CollageImage image={collageBoxes[6]} delay={540} />
+            <CollageImage image={collageBoxes[7]} delay={630} />
+            <CollageImage image={collageBoxes[8]} delay={720} />
+            <CollageImage image={collageBoxes[9]} delay={810} />
+          </div>
+        </div>
+
+        <div
+          className={`absolute inset-0 transition-all duration-700 ease-out ${
+            activeSlide === 1
+              ? 'z-10 opacity-100 scale-100'
+              : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
+          }`}
+          aria-hidden={activeSlide !== 1}
+        >
+          <div className="grid h-full grid-cols-1 gap-5 bg-black p-4 md:grid-cols-2 lg:p-5">
+            <div
+              className={`relative min-h-[320px] overflow-hidden rounded-[26px] md:min-h-0 ${
+                activeSlide === 1 ? 'hero-split-panel hero-split-panel--top' : ''
+              }`}
+            >
+              <VideoPanel mode="splitVideo" />
+            </div>
+            <div
+              className={`flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24 ${
+                activeSlide === 1 ? 'hero-split-panel hero-split-panel--bottom' : ''
+              }`}
+            >
+              <TextBox2 />
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`absolute inset-0 transition-all duration-700 ease-out ${
+            activeSlide === 2
+              ? 'z-10 opacity-100 scale-100'
+              : 'z-0 opacity-0 scale-[1.02] pointer-events-none'
+          }`}
+          aria-hidden={activeSlide !== 2}
+        >
+          <div className={`absolute inset-0 ${activeSlide === 2 ? 'hero-full-video' : ''}`}>
+            <VideoPanel mode="backgroundVideo" />
+          </div>
+          <div
+            className={`absolute inset-0 bg-black/60 ${
+              activeSlide === 2 ? 'hero-full-video-overlay' : ''
             }`}
-            aria-label={`Go to slide ${index + 1}`}
           />
-        ))}
-      </div>
-    </section>
+          <div
+            className={`absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,15,0.78),rgba(2,10,15,0.35),rgba(2,10,15,0.74))] ${
+              activeSlide === 2 ? 'hero-full-video-overlay' : ''
+            }`}
+          />
+          <div
+            className={`relative z-10 flex h-full items-center justify-center px-5 ${
+              activeSlide === 2 ? 'hero-full-video-caption' : ''
+            }`}
+          >
+            <TextBox2 centered />
+          </div>
+        </div>
+
+        <div className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 flex-col gap-3 md:flex">
+          {Array.from({ length: slideCount }).map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setActiveSlide(index)}
+              className={`h-10 w-[3px] rounded-full transition-colors duration-300 ${
+                index === activeSlide ? 'bg-[#38bdf8]' : 'bg-white/25 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
+    </>
   )
 }

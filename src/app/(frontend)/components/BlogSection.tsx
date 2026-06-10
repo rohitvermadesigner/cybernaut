@@ -7,14 +7,16 @@ export default async function BlogSection() {
   const posts = await getLatestPosts()
 
   return (
-    <section className="py-12">
+    <section className="py-8 md:py-12">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-2xl font-extralight uppercase text-[var(--skyBlue)]">BLOGS</p>
-          <h2 className="font-roboto-condensed text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl text-white">
+          <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
+            BLOGS
+          </p>
+          <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight sm:text-5xl text-white">
             Our Latest Insights
           </h2>
-          <p className="mx-auto max-w-5xl text-xl text-white mt-4">
+          <p className="mx-auto max-w-5xl text-base md:text-xl text-white mt-4 font-thin tracking-wider">
             Our dedicated IT helpdesk professionals ensure uninterrupted functioning of your digital
             infrastructure.
           </p>
@@ -43,7 +45,7 @@ export default async function BlogSection() {
                   />
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-4">
                   <span className="text-sm text-[#9A9A9A]">
                     {new Date(post.createdAt).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -52,9 +54,9 @@ export default async function BlogSection() {
                     })}
                   </span>
 
-                  <h3 className="mt-3 text-[1.1rem] font-semibold leading-snug ">{post.title}</h3>
+                  <h3 className="mt-3 text-[1.1rem] leading-snug ">{post.title}</h3>
 
-                  <p className="mt-3 text-sm leading-6 line-clamp-3">
+                  <p className="mt-3 text-sm leading-6 line-clamp-3 font-thin tracking-wider">
                     {extractContentPreview(post.content)}
                   </p>
 

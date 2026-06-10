@@ -66,6 +66,34 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+  .services-mobile-slider {
+    display: block;
+  }
+
+  @media (width >= 64rem) {
+    .services-mobile-slider {
+      display: none;
+    }
+  }
+
+  .team-mobile-slider {
+    display: block;
+  }
+
+  .team-desktop-list {
+    display: none;
+  }
+
+  @media (width >= 64rem) {
+    .team-mobile-slider {
+      display: none;
+    }
+
+    .team-desktop-list {
+      display: block;
+    }
+  }
+
   .collage-card {
     position: relative;
     border-radius: 24px;
@@ -156,7 +184,7 @@
     width: 100%;
     height: 100%;
     background: #fff;
-    transform: translateY(140px) scale(0.20, 0.70);
+    transform: translateY(140px) scale(0.2, 0.7);
     transform-origin: center;
     animation: about-slide-two-background-enter 0.8s ease-out forwards;
   }
@@ -296,7 +324,7 @@
 
 @keyframes about-slide-two-background-enter {
   0% {
-    transform: translateY(140px) scale(0.20, 0.70);
+    transform: translateY(140px) scale(0.2, 0.7);
   }
 
   100% {
@@ -310,7 +338,7 @@
   }
 
   100% {
-    transform: translateY(140px) scale(0.20, 0.70);
+    transform: translateY(140px) scale(0.2, 0.7);
   }
 }
 

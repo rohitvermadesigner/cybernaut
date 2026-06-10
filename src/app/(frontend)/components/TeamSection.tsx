@@ -1,6 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { useRef, useState } from 'react'
+import type { Swiper as SwiperType } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
 
 const teamMembers = [
   {
@@ -52,16 +57,47 @@ const teamMembers = [
   },
 ]
 
+type TeamMember = (typeof teamMembers)[number]
+
+const TeamMemberCard = ({ member }: { member: TeamMember }) => (
+  <article className="grid min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white sm:grid-cols-[minmax(0,1fr)_250px]">
+    <div className="flex flex-col justify-center p-6 sm:p-8">
+      <h3 className="font-roboto-condensed text-2xl md:text-3xl font-bold uppercase leading-tight">
+        {member.name}
+      </h3>
+      <p className="mt-2 text-base font-medium uppercase tracking-wide">{member.designation}</p>
+      <p className="mt-4 md:mt-10 text-base font-thin leading-7 tracking-wide">
+        {member.paragraph}
+      </p>
+    </div>
+
+    <div className="relative mx-auto w-[60%] md:w-[100%] min-h-[250px] md:min-h-[250px]">
+      <Image
+        src={member.image}
+        alt={member.name}
+        fill
+        className="object-cover"
+        sizes="(max-width: 640px) 40vw, 220px"
+      />
+    </div>
+  </article>
+)
+
 export const TeamSection = () => {
+  const swiperRef = useRef<SwiperType | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
   return (
-    <section aria-label="Cybernaut team" className="py-12 text-[#251f5d] lg:py-20">
+    <section aria-label="Cybernaut team" className="py-8 text-[#251f5d] lg:py-12">
       <div className="container grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
-        <div className="lg:sticky lg:top-28">
-          <p className="mb-4 text-2xl font-extralight uppercase text-[var(--skyBlue)]">Our Team</p>
-          <h2 className="font-roboto-condensed text-balance text-4xl font-extrabold uppercase leading-tight text-[#fff] sm:text-5xl">
+        <div className="lg:sticky lg:top-28 text-center md:text-left">
+          <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
+            Our Team
+          </p>
+          <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight text-[#fff] sm:text-5xl">
             MEET THE FACES BEHIND THE TECH
           </h2>
-          <div className="mt-6 space-y-5 text-lg font-thin leading-8 tracking-wide text-[#fff]">
+          <div className="mt-6 space-y-5 text-base md:text-lg font-thin leading-8 tracking-wide text-[#fff]">
             <p>
               At Cybernaut, we have a saying, “Behind every leading IT service provider in Dubai is
               a team of curious minds and experienced specialists.
@@ -74,35 +110,46 @@ export const TeamSection = () => {
           </div>
         </div>
 
-        <div className="max-h-[680px] overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="team-mobile-slider min-w-0">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={24}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+            }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            className="w-full"
+          >
+            {teamMembers.map((member) => (
+              <SwiperSlide key={member.name} className="h-auto">
+                <TeamMemberCard member={member} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className="mt-6 flex items-center justify-center gap-2" aria-label="Team slides">
+            {teamMembers.map((member, index) => (
+              <button
+                key={member.name}
+                type="button"
+                aria-label={`Show ${member.name}`}
+                aria-current={activeIndex === index ? 'true' : undefined}
+                onClick={() => swiperRef.current?.slideTo(index)}
+                className="h-2 rounded-full transition"
+                style={{
+                  width: activeIndex === index ? '28px' : '8px',
+                  backgroundColor:
+                    activeIndex === index ? 'var(--skyBlue)' : 'rgba(255,255,255,0.45)',
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="team-desktop-list max-h-[680px] min-w-0 overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="space-y-6 pb-2">
             {teamMembers.map((member) => (
-              <article
-                key={member.name}
-                className="grid min-h-[325px] overflow-hidden rounded-4xl border border-[#251f5d]/12 bg-[linear-gradient(90deg,#133342,#0c151a)] shadow-[0_18px_45px_rgba(37,31,93,0.10)] sm:grid-cols-[minmax(0,1fr)_220px] text-white"
-              >
-                <div className="flex flex-col justify-center p-6 sm:p-8">
-                  <h3 className="font-roboto-condensed text-3xl font-bold uppercase leading-tight">
-                    {member.name}
-                  </h3>
-                  <p className="mt-2 text-base font-medium uppercase tracking-wide">
-                    {member.designation}
-                  </p>
-                  <p className="mt-10 text-base font-thin leading-7 tracking-wide">
-                    {member.paragraph}
-                  </p>
-                </div>
-
-                <div className="relative min-h-[220px] sm:min-h-full">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(min-width: 1024px) 220px, (min-width: 640px) 35vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </article>
+              <TeamMemberCard key={member.name} member={member} />
             ))}
           </div>
         </div>

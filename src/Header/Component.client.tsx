@@ -69,7 +69,11 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           </div>
         </div>
 
-        <HeaderNav data={data} mobileMenuOpen={mobileMenuOpen} />
+        <HeaderNav
+          data={data}
+          mobileMenuOpen={mobileMenuOpen}
+          onNavigate={() => setMobileMenuOpen(false)}
+        />
       </div>
     </header>
   )

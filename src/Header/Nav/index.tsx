@@ -5,16 +5,20 @@ import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa'
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 
-export const HeaderNav: React.FC<{ data: HeaderType; mobileMenuOpen: boolean }> = ({
-  data,
-  mobileMenuOpen,
-}) => {
+export const HeaderNav: React.FC<{
+  data: HeaderType
+  mobileMenuOpen: boolean
+  onNavigate?: () => void
+}> = ({ data, mobileMenuOpen, onNavigate }) => {
   const navItems = data?.navItems || []
 
   return (
     <>
       <nav
         className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row md:gap-8 md:items-center w-full md:w-auto mt-4 md:mt-0`}
+        onClick={() => {
+          if (mobileMenuOpen) onNavigate?.()
+        }}
       >
         {navItems.map(({ link }, i) => {
           return (
@@ -28,8 +32,6 @@ export const HeaderNav: React.FC<{ data: HeaderType; mobileMenuOpen: boolean }> 
     text-sm
     justify-start
     md:justify-center
-    border-b-[1px]
-    md:border-0
     border-[#ccc]
     block
     rounded-none

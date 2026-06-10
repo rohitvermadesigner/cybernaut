@@ -4,7 +4,7 @@ import React from 'react'
 import { Mail, MapPin, Phone, Send, Sparkles } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 
-const quickLinks = ['Home', 'About Us', 'Our Services', 'Blogs', 'Careers', 'Contact Us']
+const quickLinks = ['Home', 'About Us', 'Our Services', 'Blogs', 'Our Team', 'Contact Us']
 
 const socialLinks = [
   { href: 'https://www.linkedin.com', label: 'LinkedIn', icon: FaLinkedinIn },
@@ -37,7 +37,7 @@ export async function Footer() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_28%,rgba(26,152,213,0.16),transparent_30%),radial-gradient(circle_at_76%_24%,rgba(26,152,213,0.14),transparent_28%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,32,40,0.92),rgba(3,10,13,0.98)_48%,rgba(0,0,0,1))]" />
 
-        <div className="container relative z-10 px-6 py-12 sm:py-6 lg:px-8 lg:pt-20">
+        <div className="container relative z-10 px-6 py-12 sm:py-6 lg:px-8 lg:pt-12">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1.15fr_1.1fr] lg:gap-16 xl:gap-24">
             <section className="max-w-[260px]">
               <Link

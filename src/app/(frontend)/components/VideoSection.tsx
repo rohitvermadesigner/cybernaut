@@ -76,7 +76,7 @@ export const VideoSection = () => {
     <section
       ref={sectionRef}
       aria-label="Cybernaut video gallery"
-      className="bg-[linear-gradient(90deg,#05252d_0%,#02080b_42%,#000_100%)] py-10 text-white lg:py-14"
+      className="py-10 text-white lg:py-12"
     >
       <div className="mb-8 text-center lg:mb-10">
         <h2 className="font-roboto-condensed text-balance text-[2.35rem] font-extrabold uppercase leading-none sm:text-5xl">
@@ -104,7 +104,7 @@ export const VideoSection = () => {
           >
             {videos.map((video, index) => (
               <SwiperSlide key={video.id}>
-                <div className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
+                <div className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.35)] md:h-132">
                   <video
                     className="h-full w-full object-cover"
                     src={video.src}

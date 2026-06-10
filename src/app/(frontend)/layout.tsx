@@ -49,9 +49,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className="bg-[url('/images/bg.png')] bg-repeat bg-fixed">
+      <body className="bg-[url('/images/bg.png')] bg-top bg-center bg-cover bg-no-repeat bg-fixed">
         <InitTheme />
         <Providers>
           <AdminBar
