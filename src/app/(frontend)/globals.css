@@ -10,6 +10,11 @@
 @custom-variant xl (@media (width >= theme(--breakpoint-xl)));
 @custom-variant 2xl (@media (width >= theme(--breakpoint-2xl)));
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   h1,
   h2,

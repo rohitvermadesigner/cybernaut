@@ -82,6 +82,10 @@ export const VideoSection = () => {
         <h2 className="font-roboto-condensed text-balance text-[2.35rem] font-extrabold uppercase leading-none sm:text-5xl">
           CYBERTUBE
         </h2>
+        <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 font-thin tracking-wider">
+          Making sense of the IT infrastructure world through byte-sized videos
+          <br /> sans the jargons and confusion.
+        </p>
       </div>
 
       <div className="container">

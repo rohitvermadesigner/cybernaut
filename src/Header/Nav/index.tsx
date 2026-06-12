@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import type { Header as HeaderType } from '@/payload-types'
-import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa'
+import { FaPhoneAlt } from 'react-icons/fa'
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 
@@ -48,11 +48,13 @@ export const HeaderNav: React.FC<{
       <ul className={` hidden md:block flex md:flex gap-4 mt-3 md:mt-0`}>
         <li>
           <Link
-            href="https://wa.me/97145570410"
+            href="tel:800 292376288"
             target="_blank"
             className="triangle-cta text-white py-3 px-6 block"
           >
-            <span className="flex items-center gap-2">Get Started</span>
+            <span className="flex items-center gap-2">
+              <FaPhoneAlt className="w-5" /> 800 Cybernaut
+            </span>
           </Link>
         </li>
       </ul>

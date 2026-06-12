@@ -10,21 +10,21 @@ const aboutSlides = 2
 const values = [
   {
     image: '/images/about/expertise.png',
-    title: 'Expertise',
+    title: 'Quality',
     description:
-      'We know our way around the IT services world and we understand the difference between a...',
+      'Good IT infrastructure deserves good craftsmanship.Our team focuses on the smallest of details to keep your business running without any hiccups.',
   },
   {
     image: '/images/about/client-centric.png',
-    title: 'Client-Centric',
+    title: 'Commitment ',
     description:
-      'If the solution doesn’t fit, you must rethink. Our team understands the pace and rhythm that...',
+      'If the solution doesn’t fit, you must rethink. Our solutions are tailored around your operational needs and market positions.',
   },
   {
     image: '/images/about/cost-effective.png',
-    title: 'Cost-Effective',
+    title: 'Integrity',
     description:
-      'Overspending on IT support are now yesteryear problems. In the 21st century, good IT support...',
+      "IT solutions should add value not complexities to your operations. That's why in the modern world, good IT support is always lighter on the wallet.",
   },
 ]
 
@@ -33,22 +33,12 @@ const movingValue = values[1]
 const MobileAboutSection = () => (
   <section
     aria-label="About Cybernaut mobile"
-    className="relative overflow-hidden bg-cover bg-top bg-center px-8 pb-8 pt-8 text-white md:hidden"
+    className="relative overflow-hidden bg-cover bg-top bg-center px-4 pb-8 pt-8 text-white md:hidden text-center"
     style={{
       minHeight: '529px',
-      backgroundImage: "url('/images/about/about-bg-mobile.png')",
     }}
   >
-    <div
-      className="absolute"
-      style={{
-        zIndex: 5,
-        right: '0px',
-        bottom: '-28px',
-        width: '220px',
-        height: '310px',
-      }}
-    >
+    <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
       <Image
         src="/images/about/client-centric.png"
         alt=""
@@ -67,16 +57,20 @@ const MobileAboutSection = () => (
         className="font-roboto-condensed font-extrabold uppercase tracking-normal"
         style={{ fontSize: '1.95rem', lineHeight: 1.12 }}
       >
-        Because your business
+        Safeguarding your business against downtime and cyber threats
       </h2>
+      <p className="text-[1.28rem] mt-4">
+        Helping them stay on course while we take care of the blinking router side of your
+        operations in the background.
+      </p>
       <p
-        className="mt-4 text-white/94"
+        className="mt-4 text-white/94 font-thin tracking-wider"
         style={{ maxWidth: '395px', fontSize: '1.04rem', lineHeight: 1.58 }}
       >
-        Cybernaut is in pursuit of becoming the pre-eminent technology solutions provider under the
-        corporate group of Excellence. We&apos;re not just about ticking boxes or using the latest
-        IT jargon; we&apos;re your trusted partner on this thrilling journey through the dynamic
-        digital landscape.
+        We understand that a lot of time and energy is lost to IT issues that shouldn’t have flared
+        up in the first place. To thrive in a digital-first ecosystem, Cybernaut becomes your ace in
+        the hole. A leading IT Company in Dubai, Cybernaut has designed IT solutions with a belief
+        that productivity and continuity keeps your business on track.
       </p>
       <Link
         href="about"
@@ -165,12 +159,12 @@ export const AboutSection = () => {
   }, [goToSlide])
 
   return (
-    <>
+    <div id="aboutus">
       <MobileAboutSection />
       <section
         ref={sectionRef}
         aria-label="About Cybernaut"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[720px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] md:block"
+        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] md:block"
       >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -186,7 +180,7 @@ export const AboutSection = () => {
                 About Cybernaut
               </p>
               <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl font-roboto-condensed">
-                Safeguarding your business against downtime and cyber threats.
+                Safeguarding your business against downtime and cyber threats
               </h2>
             </div>
 
@@ -210,11 +204,7 @@ export const AboutSection = () => {
                   A leading IT Company in Dubai, Cybernaut has designed IT solutions with a belief
                   that productivity and continuity keeps your business on track.
                 </p>
-                <Link
-                  href="about"
-                  target="_blank"
-                  className="triangle-cta text-white py-3 px-6 mt-8 inline-block"
-                >
+                <Link href="#" className="triangle-cta text-white py-3 px-6 mt-8 inline-block">
                   <span className="flex items-center gap-2">Know More</span>
                 </Link>
               </div>
@@ -243,11 +233,13 @@ export const AboutSection = () => {
           {activeSlide === 1 && (
             <div className="container relative z-10 flex h-full flex-col py-12">
               <div className="text-center about-values-copy">
-                <p className="mb-4 text-2xl uppercase text-[#000] font-extralight">CORE VALUES</p>
+                <p className="mb-4 text-xl md:text-2xl uppercase text-[#000] font-extralight">
+                  CORE VALUES
+                </p>
                 <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl text-black font-roboto-condensed">
                   What Makes Cybernaut Different
                 </h2>
-                <p className="mx-auto max-w-3xl text-xl text-gray-800 ">
+                <p className="mx-auto max-w-3xl text-lg text-gray-800 ">
                   Our dedicated IT helpdesk professionals ensure uninterrupted functioning of <br />
                   your digital infrastructure.
                 </p>
@@ -289,8 +281,8 @@ export const AboutSection = () => {
         <article
           className={`about-moving-card pointer-events-none absolute z-20 rounded-[14px] bg-[url(/images/about/card-bg-center.png)] bg-top bg-center bg-no-repeat border-4 border-[#ccc] p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
             activeSlide === 1
-              ? 'about-moving-card--details bg-[url(/images/bg.png)] bg-[center_top_-200px] py-10 px-5 w-80 h-[30rem] -mt-20'
-              : 'about-moving-card--intro w-96 h-[40rem] mt-16 bg-[url(/images/about/card-bg-center.png)] px-16'
+              ? 'about-moving-card--details bg-[center_top_-200px] py-10 px-5 w-80 h-[30rem] -mt-20'
+              : 'about-moving-card--intro w-96 h-[40rem] mt-16 px-16'
           }`}
         >
           <div className="about-moving-card__image relative overflow-hidden rounded-[22px]">
@@ -323,6 +315,6 @@ export const AboutSection = () => {
           ))}
         </div>
       </section>
-    </>
+    </div>
   )
 }

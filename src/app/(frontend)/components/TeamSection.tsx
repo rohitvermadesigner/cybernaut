@@ -9,6 +9,25 @@ import 'swiper/css'
 
 const teamMembers = [
   {
+    name: 'SHERICK MARK PANTANILLA',
+    designation: 'Jr. IT Technician',
+    image: '/images/team/sherick-mark-pantanilla.png',
+    paragraph: '',
+  },
+  {
+    name: 'MARK VISCA',
+    designation: 'Jr. IT Tech',
+    image: '/images/team/mark-visca.png',
+    paragraph:
+      'Holds a Certificate in Computer Technology and brings practical knowledge of IT systems, troubleshooting, and support. With a rich blend of experience in hospitality, safety training, and IT support, he combines hands-on technical expertise with excellent problem-solving skills, ensuring dependable and efficient IT assistance',
+  },
+  {
+    name: 'WIN HLAING OO',
+    designation: 'IT Technician',
+    image: '/images/team/win-hlaing-oo.png',
+    paragraph: '',
+  },
+  {
     name: 'Waqas Ahmad',
     designation: 'IT Technician',
     image: '/images/team/waqas-ahmad.png',
@@ -16,44 +35,25 @@ const teamMembers = [
       'Equipped with an Associate’s Degree in Information Technology and various certifications including MCSE (Microsoft Certified Systems Engineer), CCNA (Cisco Certified Network Associate), CCNP (Cisco Certified Network Professional), and presently undergoing MTCNA (MikroTik Certified Network Associate) Training',
   },
   {
-    name: 'SHERICK MARK PANTANILLA',
-    designation: 'JUNIOR IT TECHNICIAN ',
-    image: '/images/team/sherick-mark-pantanilla.png',
-    paragraph: '',
-  },
-  {
-    name: 'WIN HLAING OO',
-    designation: 'IT TECHNICIAN',
-    image: '/images/team/win-hlaing-oo.png',
-    paragraph: '',
+    name: 'MARVIN LOPEZ CONCEPCION',
+    designation: 'Sales Executive',
+    image: '/images/team/marvin-lopez-concepcion.png',
+    paragraph:
+      'Holds a Degree in Business Administration, emphasizing a strong foundation in management and business strategy. Over a decade of experience in customer and technical services with a focus on the IT industry, driving growth through innovative solutions and fostering lasting client relationships',
   },
   {
     name: 'NIKHIL SAGAR',
-    designation: 'SENIOR IT TECHNICIAN',
+    designation: 'Sr. IT Technician',
     image: '/images/team/nikhil-sagar.png',
     paragraph:
       'Earned a Bachelor of Science in Information Technology. With over a decade of hands-on experience in IT support across various industries, offering extensive expertise in troubleshooting, system administration, and the deployment of innovative technological solutions.',
   },
   {
-    name: 'MARK VISCA',
-    designation: 'JUNIOR IT TECHNICIAN',
-    image: '/images/team/mark-visca.png',
-    paragraph:
-      'Holds a Certificate in Computer Technology and brings practical knowledge of IT systems, troubleshooting, and support. With a rich blend of experience in hospitality, safety training, and IT support, he combines hands-on technical expertise with excellent problem-solving skills, ensuring dependable and efficient IT assistance',
-  },
-  {
     name: 'JAMES STRYDOM',
-    designation: 'SENIOR SALES EXECUTIVE',
+    designation: 'Sr. Sales Executive',
     image: '/images/team/james-strydom.png',
     paragraph:
       'Holds a Diploma in Hospitality Management, highlighting commitment to excellence in service delivery. More than 4 years of focused experience in customer relations and guest management, showcasing a keen grasp of client needs and delivering effective solutions',
-  },
-  {
-    name: 'MARVIN LOPEZ CONCEPCION',
-    designation: 'SALES EXECUTIVE',
-    image: '/images/team/marvin-lopez-concepcion.png',
-    paragraph:
-      'Holds a Degree in Business Administration, emphasizing a strong foundation in management and business strategy. Over a decade of experience in customer and technical services with a focus on the IT industry, driving growth through innovative solutions and fostering lasting client relationships',
   },
 ]
 
@@ -61,11 +61,11 @@ type TeamMember = (typeof teamMembers)[number]
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
   <article className="grid min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white sm:grid-cols-[minmax(0,1fr)_250px]">
-    <div className="flex flex-col justify-center p-6 sm:p-8">
+    <div className="flex flex-col justify-start p-6 sm:p-8">
       <h3 className="font-roboto-condensed text-2xl md:text-3xl font-bold uppercase leading-tight">
         {member.name}
       </h3>
-      <p className="mt-2 text-base font-medium uppercase tracking-wide">{member.designation}</p>
+      <p className="mt-2 text-base font-medium tracking-wide">{member.designation}</p>
       <p className="mt-4 md:mt-10 text-base font-thin leading-7 tracking-wide">
         {member.paragraph}
       </p>
@@ -88,7 +88,7 @@ export const TeamSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section aria-label="Cybernaut team" className="py-8 text-[#251f5d] lg:py-12">
+    <section aria-label="Cybernaut team" className="py-8 text-[#251f5d] lg:py-12" id="team">
       <div className="container grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
         <div className="lg:sticky lg:top-28 text-center md:text-left">
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">

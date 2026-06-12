@@ -8,13 +8,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 const slideCount = 3
 
 const heroCopy = {
-  title: 'Launch your mission with advanced IT solutions.',
+  title: 'Launch your mission with advanced IT solutions',
   description:
     'IT solutions and support that keeps your business shielded from worrying about digital downtime.',
 }
 
 const heroCopy2 = {
-  title: 'We handle the tech, while you accelerate your business.',
+  title: 'We handle the tech, while you accelerate your business',
   description:
     'Right from phone systems to internet security to workplace IT solutions, our Cybernauts take care of the tech side so your business can run on lightening speed.',
 }
@@ -23,12 +23,12 @@ const videoAssets = {
   splitVideo: {
     mp4: '/images/hero/hero.mp4',
     webm: '/images/hero/hero.webm',
-    poster: '/images/hero-slide-3.png',
+    poster: '/images/hero/video-bg.png',
   },
   backgroundVideo: {
     mp4: '/images/hero/hero.mp4',
     webm: '/images/hero/hero.webm',
-    poster: '/images/hero-slide-1.png',
+    poster: '/images/hero/video-bg.png',
   },
 }
 
@@ -107,7 +107,7 @@ const collageBoxes = [
 
 const TextBox = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem]">
+    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
       {heroCopy.title}
     </h1>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
@@ -118,19 +118,19 @@ const TextBox = ({ centered = false }: { centered?: boolean }) => (
 
 const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem]">
+    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
       {heroCopy2.title}
     </h1>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
       {heroCopy2.description}
     </p>
-    <Link
+    {/* <Link
       href="about"
       target="_blank"
       className="triangle-cta text-white py-3 px-6 block mt-4 inline-block mt-8"
     >
       <span className="flex items-center gap-2">Know More</span>
-    </Link>
+    </Link> */}
   </div>
 )
 
@@ -152,22 +152,22 @@ const MobileHero = () => (
       }}
     />
 
-    <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-5 pb-24 pt-20 text-center">
+    <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-4 pb-24 pt-20 text-center">
       <div className="mx-auto max-w-[420px]">
-        <h1 className="font-roboto-condensed text-[2rem] font-extrabold uppercase leading-tight tracking-normal text-white">
-          Our dedicated IT helpdesk
+        <h1 className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
+          We handle the tech, while you accelerate your business
         </h1>
         <p className="mx-auto mt-3 max-w-[390px] text-[1.28rem] leading-8 text-white/88">
-          Our dedicated IT helpdesk professionals ensure uninterrupted functioning of your digital
-          infrastructure.
+          Right from phone systems to internet security to workplace IT solutions, our Cybernauts
+          take care of the tech side so your business can run on lightening speed.
         </p>
-        <Link
+        {/* <Link
           href="about"
           target="_blank"
           className="triangle-cta mt-7 inline-block px-7 py-3 text-base font-medium text-white"
         >
           <span>Know More</span>
-        </Link>
+        </Link> */}
       </div>
     </div>
   </section>

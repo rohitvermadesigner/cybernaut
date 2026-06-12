@@ -7,6 +7,7 @@ import type { Header } from '@/payload-types'
 import { HeaderNav } from './Nav'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
+import { FaPhoneAlt } from 'react-icons/fa'
 
 interface HeaderClientProps {
   data: Header
@@ -47,11 +48,13 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             <ul className={` block md:hidden  flex md:flex gap-4 mt-2 md:mt-0`}>
               <li>
                 <Link
-                  href="https://wa.me/97145570410"
+                  href="tel:800 292376288"
                   target="_blank"
                   className="triangle-cta text-white py-2 px-4 block text-sm"
                 >
-                  <span className="flex items-center gap-2">Get Started</span>
+                  <span className="flex items-center gap-2">
+                    <FaPhoneAlt className="w-5" /> 800 Cybernaut
+                  </span>
                 </Link>
               </li>
             </ul>
