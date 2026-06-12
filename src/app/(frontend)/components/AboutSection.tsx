@@ -16,15 +16,15 @@ const values = [
   },
   {
     image: '/images/about/client-centric.png',
-    title: 'Commitment ',
-    description:
-      'If the solution doesn’t fit, you must rethink. Our solutions are tailored around your operational needs and market positions.',
-  },
-  {
-    image: '/images/about/cost-effective.png',
     title: 'Integrity',
     description:
       "IT solutions should add value not complexities to your operations. That's why in the modern world, good IT support is always lighter on the wallet.",
+  },
+  {
+    image: '/images/about/cost-effective.png',
+    title: 'Commitment ',
+    description:
+      'If the solution doesn’t fit, you must rethink. Our solutions are tailored around your operational needs and market positions.',
   },
 ]
 

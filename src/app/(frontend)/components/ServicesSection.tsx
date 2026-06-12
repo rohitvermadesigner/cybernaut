@@ -38,7 +38,7 @@ const services = [
     ],
   },
   {
-    title: 'Phone System',
+    title: 'Phone Systems',
     image: '/images/services/phone-system.jpg',
     items: ['PABX Setup and Support', 'Cloud-Based Phone Solutions', 'Call Management'],
   },
@@ -72,7 +72,7 @@ const services = [
     ],
   },
   {
-    title: 'Biometric & Attendance System',
+    title: 'Biometric & Attendance Systems',
     image: '/images/services/biometric-attendance-system.jpg',
     items: [
       'Biometric Systems in Dubai',
