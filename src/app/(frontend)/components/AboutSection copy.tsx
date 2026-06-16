@@ -95,7 +95,7 @@ export const AboutSection = () => {
         <div className="container grid h-full items-center gap-12 py-16 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <p className="mb-5 text-xl md:text-2xl font-bold uppercase tracking-[0.3em] text-[var(--skyBlue)]">
-              About Cybernaut
+              About Us
             </p>
             <h2 className="max-w-4xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-5xl lg:text-6xl">
               Safeguarding your business against downtime and cyber threats

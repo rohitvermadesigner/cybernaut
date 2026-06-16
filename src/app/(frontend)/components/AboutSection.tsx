@@ -9,19 +9,22 @@ const aboutSlides = 2
 
 const values = [
   {
-    image: '/images/about/expertise.png',
+    image: '/images/about/it-service-quality-craftsmanship-icon.png',
+    alt: 'Illustrated technology specialist icon representing technical craftsmanship for IT services and management',
     title: 'Quality',
     description:
-      'Good IT infrastructure deserves good craftsmanship.Our team focuses on the smallest of details to keep your business running without any hiccups.',
+      'Good IT infrastructure deserves good craftsmanship. Our team focuses on the smallest of details to keep your business running without any hiccups.',
   },
   {
-    image: '/images/about/client-centric.png',
+    image: '/images/about/client-centric-it-support-services-icon.png',
+    alt: 'Customer-focused business support symbol representing client-centric service delivery',
     title: 'Integrity',
     description:
       "IT solutions should add value not complexities to your operations. That's why in the modern world, good IT support is always lighter on the wallet.",
   },
   {
-    image: '/images/about/cost-effective.png',
+    image: '/images/about/cost-effective-affordable-it-solutions-icon.png',
+    alt: 'Smart business assessment icon representing budget-friendly technology management',
     title: 'Commitment ',
     description:
       'If the solution doesn’t fit, you must rethink. Our solutions are tailored around your operational needs and market positions.',
@@ -40,7 +43,7 @@ const MobileAboutSection = () => (
   >
     <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
       <Image
-        src="/images/about/client-centric.png"
+        src="/images/about/client-centric-it-support-services-icon.png"
         alt=""
         fill
         sizes="260px"
@@ -59,12 +62,12 @@ const MobileAboutSection = () => (
       >
         Safeguarding your business against downtime and cyber threats
       </h2>
-      <p className="text-[1.28rem] mt-4">
-        Helping them stay on course while we take care of the blinking router side of your
-        operations in the background.
-      </p>
+      {/* <p className="text-[1.28rem] mt-4">
+        Helping you stay on course while we take care of the blinking router side of your operations
+        in the background.
+      </p> */}
       <p
-        className="mt-4 text-white/94 font-thin tracking-wider"
+        className="mt-4 text-white/94 md:font-thin md:tracking-wider mt-10"
         style={{ maxWidth: '395px', fontSize: '1.04rem', lineHeight: 1.58 }}
       >
         We understand that a lot of time and energy is lost to IT issues that shouldn’t have flared
@@ -177,7 +180,7 @@ export const AboutSection = () => {
           <div className="container flex h-full flex-col justify-center py-16">
             <div className="text-center">
               <p className="mb-5 text-2xl font-bold uppercase text-[var(--skyBlue)] font-extralight">
-                About Cybernaut
+                About Us
               </p>
               <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl font-roboto-condensed">
                 Safeguarding your business against downtime and cyber threats
@@ -187,7 +190,7 @@ export const AboutSection = () => {
             <div className="mt-12 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,390px)_minmax(0,1fr)]">
               <div className="text-lg leading-8 mt-24">
                 <p className="text-2xl">
-                  Helping them stay on course while we take care of the blinking router side of your
+                  Helping you stay on course while we take care of the blinking router side of your
                   operations in the background.
                 </p>
                 <p className="font-thin tracking-wider mt-4">
@@ -258,7 +261,7 @@ export const AboutSection = () => {
                       <div className="relative h-52 overflow-hidden rounded-[22px]">
                         <Image
                           src={value.image}
-                          alt={value.title}
+                          alt={value.alt}
                           fill
                           sizes="(min-width: 768px) 30vw, 90vw"
                           className="object-contain"

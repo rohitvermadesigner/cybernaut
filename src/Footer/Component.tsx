@@ -29,6 +29,7 @@ const contactItems = [
   {
     icon: MapPin,
     label: '3503-3507, 35th Floor, HDS Tower Cluster F, Jumeirah Lake Towers Dubai, UAE',
+    href: 'https://www.google.com/maps?ll=25.072278,55.142356&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=6568451472771036234',
   },
 ]
 
@@ -137,7 +138,12 @@ export async function Footer() {
                   )
 
                   return href ? (
-                    <Link key={label} href={href} className="flex items-center gap-4">
+                    <Link
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      className="flex items-center gap-4"
+                    >
                       {content}
                     </Link>
                   ) : (

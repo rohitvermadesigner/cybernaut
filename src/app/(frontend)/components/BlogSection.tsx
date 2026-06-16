@@ -14,9 +14,9 @@ export default async function BlogSection() {
             BLOGS
           </p>
           <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight sm:text-5xl text-white">
-            Info Hub
+            Information Hub
           </h2>
-          <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 font-thin tracking-wider">
+          <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
             Simplifying trends and insights without sounding like a user manual, <br /> so your
             business can have a competitive edge.
           </p>

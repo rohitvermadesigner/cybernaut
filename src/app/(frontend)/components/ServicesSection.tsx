@@ -10,6 +10,7 @@ const services = [
   {
     title: 'IT Support',
     image: '/images/services/it-support.jpg',
+    alt: 'IT Support',
     items: [
       'End-to-end IT Support in Dubai',
       'Server and Wifi Support',
@@ -19,7 +20,8 @@ const services = [
   },
   {
     title: 'IT Security',
-    image: '/images/services/it-security.jpg',
+    image: '/images/services/it-security-solutions.jpg',
+    alt: 'Cybernaut IT security engineer monitoring systems on dual computer screens',
     items: [
       'Cybersecurity and Security Audits',
       'Encryption Control Services',
@@ -29,7 +31,8 @@ const services = [
   },
   {
     title: 'CCTV Support',
-    image: '/images/services/cctv-support.jpg',
+    image: '/images/services/cctv-camera-installation-support.jpg',
+    alt: 'Cybernaut technician wearing gloves while installing a white dome CCTV camera',
     items: [
       'CCTV Installation',
       'CCTV Maintenance Services',
@@ -39,12 +42,14 @@ const services = [
   },
   {
     title: 'Phone Systems',
-    image: '/images/services/phone-system.jpg',
+    image: '/images/services/business-voip-phone-system.jpg',
+    alt: 'Cybernaut technician configuring a business VoIP phone system',
     items: ['PABX Setup and Support', 'Cloud-Based Phone Solutions', 'Call Management'],
   },
   {
     title: 'Wi-Fi Solutions',
-    image: '/images/services/wi-fi-solutions.jpg',
+    image: '/images/services/wifi-solutions-wireless-network-installation.jpg',
+    alt: 'IT technician configuring a white wireless access point while holding a laptop',
     items: [
       'Wifi Installation & Setup',
       'Router Configuration',
@@ -54,7 +59,8 @@ const services = [
   },
   {
     title: 'Printers & Scanners',
-    image: '/images/services/printers-scanners.jpg',
+    image: '/images/services/office-printer-scanner-setup-support.jpg',
+    alt: 'IT specialist setting up a digital tablet controller interface on an office printer scanner machine',
     items: [
       'Printer & Scanner Setup & Support',
       'Multi-Device Printer Integration',
@@ -64,7 +70,8 @@ const services = [
   },
   {
     title: 'Software Setup Support',
-    image: '/images/services/software-setup-support.jpg',
+    image: '/images/services/software-setup-technical-support.jpg',
+    alt: 'Two IT technicians collaborating on computer software configuration and system troubleshooting at a desk',
     items: [
       'Software Installation & Setup',
       'OS Updates & Maintenance',
@@ -73,7 +80,8 @@ const services = [
   },
   {
     title: 'Biometric & Attendance Systems',
-    image: '/images/services/biometric-attendance-system.jpg',
+    image: '/images/services/biometric-attendance-system-installation.jpg',
+    alt: 'Technician installing a wall-mounted digital biometric face recognition time attendance terminal',
     items: [
       'Biometric Systems in Dubai',
       'Fingerprint',
@@ -101,7 +109,7 @@ const ServiceCard = ({ service }: { service: Service }) => (
     />
     <Image
       src={service.image}
-      alt={service.title}
+      alt={service.alt}
       fill
       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 84vw"
       className="absolute bottom-0 left-0 object-cover transition duration-700 ease-out group-hover:scale-110 group-hover:blur-xs"
@@ -133,15 +141,15 @@ export const ServicesSection = () => {
       <div className="container">
         <div className="mx-auto max-w-5xl text-center">
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
-            Our Services
+            Services
           </p>
           <h2 className="font-roboto-condensed text-balance text-3xl font-extrabold uppercase leading-tight sm:text-5xl">
             Powering every click, call and connection
           </h2>
-          <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 font-thin tracking-wider">
+          <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
             IT solutions that you don’t have to second-guess. We provide streamlined and
-            future-ready infrastructure that helps you maintain your strategic-edge in UAE’s hyper-
-            competitive market.
+            future-ready infrastructure that helps you maintain your strategic-edge in UAE’s
+            hyper-competitive market.
           </p>
         </div>
 

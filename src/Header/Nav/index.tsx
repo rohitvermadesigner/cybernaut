@@ -52,7 +52,7 @@ export const HeaderNav: React.FC<{
             target="_blank"
             className="triangle-cta text-white py-3 px-6 block"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 uppercase">
               <FaPhoneAlt className="w-5" /> 800 Cybernaut
             </span>
           </Link>

@@ -34,71 +34,71 @@ const videoAssets = {
 
 const collageBoxes = [
   {
-    src: '/images/hero/slide1-0.png',
-    alt: 'IT support engineers in a server room',
+    src: '/images/hero/data-center-server-maintenance.png',
+    alt: 'Two network engineers working together to configure server rack equipment inside a data center',
     className: 'col-span-2 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'right',
   },
   {
-    src: '/images/hero/slide1-1.png',
-    alt: 'Security camera installation',
+    src: '/images/hero/outdoor-security-cctv-camera-installation.png',
+    alt: 'Technician installing a white security surveillance camera on a brick wall',
     className: 'col-span-1 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'right',
   },
   {
-    src: '/images/hero/slide1-2.png',
-    alt: 'Security camera installation',
+    src: '/images/hero/it-infrastructure-monitoring.png',
+    alt: 'Network specialist using a laptop computer to monitor systems while standing inside a server room',
     className: 'col-span-1 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'right',
   },
   {
-    src: '/images/hero/slide1-3.png',
-    alt: 'Helpdesk engineer monitoring systems',
+    src: '/images/hero/network-infrastructure-administration.png',
+    alt: 'System administrator checking network analytics on a tablet',
     className: 'col-span-1 row-span-2',
     imageClassName: 'rounded-3xl',
     direction: 'right',
   },
   {
-    src: '/images/hero/slide1-4.png',
-    alt: 'Data center infrastructure',
+    src: '/images/hero/network-cable-management.png',
+    alt: 'IT infrastructure technician holding a laptop while managing complex network cables in a server rack cabinet',
     className: 'col-span-2 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'left',
   },
   {
-    src: '/images/hero/slide1-5.png',
-    alt: 'Dedicated IT support team',
+    src: '/images/hero/professional-it-technical-support-team.png',
+    alt: 'Professional IT support engineers and technical service technicians standing together',
     className: 'col-span-1 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'right',
   },
   {
-    src: '/images/hero/slide1-6.png',
-    alt: 'Network cable maintenance',
+    src: '/images/hero/network-cabling-infrastructure-maintenance.png',
+    alt: 'Network engineers checking structured data cabling inside an enterprise server room enclosure',
     className: 'col-span-1 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'left',
   },
   {
-    src: '/images/hero/slide1-7.png',
-    alt: 'Server room technician',
+    src: '/images/hero/remote-network-monitoring-data-center.png',
+    alt: 'Female IT administrator working on a laptop computer inside an open warehouse data center',
     className: 'col-span-2 row-span-2',
     imageClassName: 'rounded-3xl',
     direction: 'left',
   },
   {
-    src: '/images/hero/slide1-8.png',
-    alt: 'Engineer checking network rack',
+    src: '/images/hero/server-configuration-management-it-support.png',
+    alt: 'Network specialist checking server metrics on a tablet terminal inside a main distribution facility',
     className: 'col-span-1 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'left',
   },
   {
-    src: '/images/hero/slide1-9.png',
-    alt: 'Infrastructure monitoring dashboard',
+    src: '/images/hero/it-operations-data-center-diagnostics.png',
+    alt: 'Two operations specialists examining network telemetry data and diagnostics inside a server farm control center',
     className: 'col-span-2 row-span-1',
     imageClassName: 'rounded-3xl',
     direction: 'left',
@@ -155,11 +155,11 @@ const MobileHero = () => (
     <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-4 pb-24 pt-20 text-center">
       <div className="mx-auto max-w-[420px]">
         <h1 className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
-          We handle the tech, while you accelerate your business
+          Launch your mission with advanced IT solutions
         </h1>
         <p className="mx-auto mt-3 max-w-[390px] text-[1.28rem] leading-8 text-white/88">
-          Right from phone systems to internet security to workplace IT solutions, our Cybernauts
-          take care of the tech side so your business can run on lightening speed.
+          IT solutions and support that keeps your business shielded from worrying about digital
+          downtime.
         </p>
         {/* <Link
           href="about"

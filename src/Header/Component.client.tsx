@@ -52,7 +52,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                   target="_blank"
                   className="triangle-cta text-white py-2 px-4 block text-sm"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 uppercase">
                     <FaPhoneAlt className="w-5" /> 800 Cybernaut
                   </span>
                 </Link>
