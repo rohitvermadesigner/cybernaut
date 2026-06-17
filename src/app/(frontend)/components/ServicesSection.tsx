@@ -1,16 +1,15 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 
 const services = [
   {
-    title: 'IT Support',
-    image: '/images/services/it-support.jpg',
-    alt: 'IT Support',
+    title: 'IT Maintenance',
+    image: '/images/services/it-maintenance-technical-support.jpg',
+    alt: 'An IT maintenance support professional works at a desk equipped with multiple computer monitors and laptops',
     items: [
       'End-to-end IT Support in Dubai',
       'Server and Wifi Support',
@@ -19,15 +18,10 @@ const services = [
     ],
   },
   {
-    title: 'IT Security',
-    image: '/images/services/it-security-solutions.jpg',
-    alt: 'Cybernaut IT security engineer monitoring systems on dual computer screens',
-    items: [
-      'Cybersecurity and Security Audits',
-      'Encryption Control Services',
-      'Data Protections',
-      'Network and IT Infrastructure Security ',
-    ],
+    title: 'Network Security',
+    image: '/images/services/network-security-solutions.jpg',
+    alt: 'A network security professional works at a multi-monitor workstation',
+    items: ['Encryption Control Services', 'Data Protection', 'Encryption Control Services'],
   },
   {
     title: 'CCTV Support',
@@ -147,9 +141,9 @@ export const ServicesSection = () => {
             Powering every click, call and connection
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
-            IT solutions that you don’t have to second-guess. We provide streamlined and
-            future-ready infrastructure that helps you maintain your strategic-edge in UAE’s
-            hyper-competitive market.
+            IT services that you don’t have to second-guess. We provide streamlined and future-ready
+            infrastructure that helps you maintain your strategic-edge in UAE’s hyper-competitive
+            market.
           </p>
         </div>
 

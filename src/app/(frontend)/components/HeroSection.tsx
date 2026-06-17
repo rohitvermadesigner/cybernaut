@@ -8,15 +8,15 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 const slideCount = 3
 
 const heroCopy = {
-  title: 'Launch your mission with advanced IT solutions',
+  title: 'Launch your mission with advanced IT services',
   description:
-    'IT solutions and support that keeps your business shielded from worrying about digital downtime.',
+    'IT services and support in Dubai that keeps your business shielded from worrying about digital downtime.',
 }
 
 const heroCopy2 = {
-  title: 'We handle the tech, while you accelerate your business',
+  title: 'We offer workplace IT solutions, while you accelerate your business',
   description:
-    'Right from phone systems to internet security to workplace IT solutions, our Cybernauts take care of the tech side so your business can run on lightening speed.',
+    'Right from phone systems to internet security, our Cybernauts take care of the tech side so your business can run on lightening speed.',
 }
 
 const videoAssets = {
@@ -118,9 +118,9 @@ const TextBox = ({ centered = false }: { centered?: boolean }) => (
 
 const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
+    <h2 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
       {heroCopy2.title}
-    </h1>
+    </h2>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
       {heroCopy2.description}
     </p>
@@ -155,11 +155,11 @@ const MobileHero = () => (
     <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-4 pb-24 pt-20 text-center">
       <div className="mx-auto max-w-[420px]">
         <h1 className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
-          Launch your mission with advanced IT solutions
+          Launch your mission with advanced IT services
         </h1>
         <p className="mx-auto mt-3 max-w-[390px] text-[1.28rem] leading-8 text-white/88">
-          IT solutions and support that keeps your business shielded from worrying about digital
-          downtime.
+          IT services and support in Dubai that keeps your business shielded from worrying about
+          digital downtime.
         </p>
         {/* <Link
           href="about"
@@ -280,6 +280,7 @@ export const HeroSection = () => {
     <>
       <MobileHero />
       <section
+        data-lenis-prevent
         ref={sectionRef}
         aria-label="Dedicated IT helpdesk hero slides"
         className="relative hidden h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white md:block"

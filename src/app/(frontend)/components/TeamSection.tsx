@@ -18,7 +18,7 @@ const teamMembers = [
   },
   {
     name: 'MARK VISCA',
-    designation: 'Jr. IT Tech',
+    designation: 'Jr. IT Technician',
     image: '/images/team/mark-visca-junior-it-technician.png',
     alt: 'Mark Visca, Junior IT Technician at Cybernaut',
     paragraph:
@@ -34,9 +34,9 @@ const teamMembers = [
   },
   {
     name: 'Waqas Ahmad',
-    designation: 'IT Technician',
+    designation: 'IT Manager',
     image: '/images/team/waqas-ahmad-it-technician.png',
-    alt: 'Waqas Ahmad, IT Technician at Cybernaut',
+    alt: 'Waqas Ahmad, IT Manager at Cybernaut',
     paragraph:
       'Equipped with an Associate’s Degree in Information Technology and various certifications including MCSE (Microsoft Certified Systems Engineer), CCNA (Cisco Certified Network Associate), CCNP (Cisco Certified Network Professional), and presently undergoing MTCNA (MikroTik Certified Network Associate) Training.',
   },
@@ -155,7 +155,10 @@ export const TeamSection = () => {
           </div>
         </div>
 
-        <div className="team-desktop-list max-h-[680px] min-w-0 overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          data-lenis-prevent
+          className="team-desktop-list max-h-[680px] min-w-0 overflow-y-auto pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           <div className="space-y-6 pb-2">
             {teamMembers.map((member) => (
               <TeamMemberCard key={member.name} member={member} />

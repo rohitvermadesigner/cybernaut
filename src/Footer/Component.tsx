@@ -65,7 +65,7 @@ export async function Footer() {
               </Link>
 
               <p className="mt-5 text-[0.95rem]">
-                Navigating the digital frontier with innovative IT solutions for modern businesses.
+                Navigating the digital frontier with innovative IT services for modern businesses.
               </p>
 
               <div className="mt-7 flex gap-4">

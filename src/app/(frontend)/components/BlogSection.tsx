@@ -23,6 +23,7 @@ export default async function BlogSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {posts.map((post) => {
+            const displayDate = post.publishedAt || post.updatedAt || post.createdAt
             const imageUrl =
               post.heroImage && typeof post.heroImage === 'object'
                 ? (post.heroImage.url ?? '')
@@ -48,7 +49,7 @@ export default async function BlogSection() {
 
                 <div className="mt-4">
                   <span className="text-sm text-[#9A9A9A]">
-                    {new Date(post.createdAt).toLocaleDateString('en-US', {
+                    {new Date(displayDate).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',

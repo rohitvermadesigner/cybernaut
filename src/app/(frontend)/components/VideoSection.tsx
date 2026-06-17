@@ -15,7 +15,7 @@ const videos = [
   },
   {
     id: 'cybertube-2',
-    title: 'IT Solutions in Motion',
+    title: 'IT Services in Motion',
     src: '/images/hero/hero.mp4',
   },
   {

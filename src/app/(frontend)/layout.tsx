@@ -15,6 +15,7 @@ import { draftMode } from 'next/headers'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import SmoothScrollProvider from './components/SmoothScrollProvider'
 
 const graphie = localFont({
   src: [
@@ -60,7 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           />
 
           <Header />
-          {children}
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
           <Footer />
         </Providers>
       </body>
@@ -70,9 +71,48 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
-  openGraph: mergeOpenGraph(),
+
+  title: {
+    default: 'IT Support Company in Dubai | Cybernaut',
+    template: '%s | Cybernaut',
+  },
+
+  description:
+    'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
+
+  alternates: {
+    canonical: 'https://www.cybernautme.com/',
+  },
+
+  openGraph: {
+    type: 'website',
+    url: 'https://www.cybernautme.com',
+    title: 'IT Support Company in Dubai | Services & Solutions - Cybernaut',
+    description:
+      'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
+    siteName: 'Cybernaut',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://cybernaut.excellenceauditing.net/images/hero/video-bg.png',
+        width: 1200,
+        height: 630,
+        alt: 'Cybernaut corporate IT branding banner featuring offered services',
+        type: 'image/png',
+      },
+    ],
+  },
+
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    title: 'IT Support Company in Dubai | Services & Solutions - Cybernaut',
+    description:
+      'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
+    images: [
+      {
+        url: 'https://cybernaut.excellenceauditing.net/images/hero/video-bg.png',
+        alt: 'Cybernaut corporate IT branding banner featuring offered services',
+      },
+    ],
   },
 }

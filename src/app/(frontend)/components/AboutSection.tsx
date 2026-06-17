@@ -20,7 +20,7 @@ const values = [
     alt: 'Customer-focused business support symbol representing client-centric service delivery',
     title: 'Integrity',
     description:
-      "IT solutions should add value not complexities to your operations. That's why in the modern world, good IT support is always lighter on the wallet.",
+      "IT services should add value not complexities to your operations. That's why in the modern world, good IT support is always lighter on the wallet.",
   },
   {
     image: '/images/about/cost-effective-affordable-it-solutions-icon.png',
@@ -60,7 +60,7 @@ const MobileAboutSection = () => (
         className="font-roboto-condensed font-extrabold uppercase tracking-normal"
         style={{ fontSize: '1.95rem', lineHeight: 1.12 }}
       >
-        Safeguarding your business against downtime and cyber threats
+        Safeguarding your business against downtime and online threats
       </h2>
       {/* <p className="text-[1.28rem] mt-4">
         Helping you stay on course while we take care of the blinking router side of your operations
@@ -72,7 +72,7 @@ const MobileAboutSection = () => (
       >
         We understand that a lot of time and energy is lost to IT issues that shouldn’t have flared
         up in the first place. To thrive in a digital-first ecosystem, Cybernaut becomes your ace in
-        the hole. A leading IT Company in Dubai, Cybernaut has designed IT solutions with a belief
+        the hole. A leading IT Company in Dubai, Cybernaut has designed IT services with a belief
         that productivity and continuity keeps your business on track.
       </p>
       <Link
@@ -165,6 +165,7 @@ export const AboutSection = () => {
     <div id="aboutus">
       <MobileAboutSection />
       <section
+        data-lenis-prevent
         ref={sectionRef}
         aria-label="About Cybernaut"
         className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] md:block"
@@ -183,7 +184,7 @@ export const AboutSection = () => {
                 About Us
               </p>
               <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl font-roboto-condensed">
-                Safeguarding your business against downtime and cyber threats
+                Safeguarding your business against downtime and online threats
               </h2>
             </div>
 
@@ -204,7 +205,7 @@ export const AboutSection = () => {
 
               <div className="text-lg leading-8 mt-24 ml-10 ">
                 <p className="font-thin tracking-wider">
-                  A leading IT Company in Dubai, Cybernaut has designed IT solutions with a belief
+                  A leading IT Company in Dubai, Cybernaut has designed IT services with a belief
                   that productivity and continuity keeps your business on track.
                 </p>
                 <Link href="#" className="triangle-cta text-white py-3 px-6 mt-8 inline-block">
@@ -243,7 +244,7 @@ export const AboutSection = () => {
                   What Makes Cybernaut Different
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-gray-800 ">
-                  Our dedicated IT helpdesk professionals ensure uninterrupted functioning of <br />
+                  Our dedicated IT support team ensures uninterrupted functioning of <br />
                   your digital infrastructure.
                 </p>
               </div>
