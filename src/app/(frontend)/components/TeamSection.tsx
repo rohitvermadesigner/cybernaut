@@ -9,44 +9,12 @@ import 'swiper/css'
 
 const teamMembers = [
   {
-    name: 'SHERICK MARK PANTANILLA',
-    designation: 'Jr. IT Technician',
-    image: '/images/team/sherick-mark-pantanilla-junior-it-technician.png',
-    alt: 'Sherick Mark Pantanilla, Junior IT Technician at Cybernaut',
-    paragraph:
-      'Holding a degree in Hotel and Restaurant Management, he has keen attention to detail. With a passion for computer technology, he has developed hands-on knowledge of computer troubleshooting, hardware, software and basic networking, and brings strong customer service and commitment to provide effective technical support.',
-  },
-  {
-    name: 'MARK VISCA',
-    designation: 'Jr. IT Technician',
-    image: '/images/team/mark-visca-junior-it-technician.png',
-    alt: 'Mark Visca, Junior IT Technician at Cybernaut',
-    paragraph:
-      'Holds a Certificate in Computer Technology and brings practical knowledge of IT systems, troubleshooting, and support. With a rich blend of experience in hospitality, safety training, and IT support, he combines hands-on technical expertise with excellent problem-solving skills, ensuring dependable and efficient IT assistance.',
-  },
-  {
-    name: 'WIN HLAING OO',
-    designation: 'IT Technician',
-    image: '/images/team/win-hlaing-oo-it-technician.png',
-    alt: 'Win Hlaing Oo, IT Technician at Cybernaut',
-    paragraph:
-      'Holds a diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over 7 years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
-  },
-  {
     name: 'Waqas Ahmad',
     designation: 'IT Manager',
     image: '/images/team/waqas-ahmad-it-technician.png',
     alt: 'Waqas Ahmad, IT Manager at Cybernaut',
     paragraph:
       'Equipped with an Associate’s Degree in Information Technology and various certifications including MCSE (Microsoft Certified Systems Engineer), CCNA (Cisco Certified Network Associate), CCNP (Cisco Certified Network Professional), and presently undergoing MTCNA (MikroTik Certified Network Associate) Training.',
-  },
-  {
-    name: 'MARVIN LOPEZ CONCEPCION',
-    designation: 'Sales Executive',
-    image: '/images/team/marvin-lopez-concepcion-sales-executive.png',
-    alt: 'Marvin Lopez Concepcion, Sales Executive at Cybernaut',
-    paragraph:
-      'Holds a Degree in Business Administration, emphasizing a strong foundation in management and business strategy. Over a decade of experience in customer and technical services with a focus on the IT industry, driving growth through innovative solutions and fostering lasting client relationships.',
   },
   {
     name: 'NIKHIL SAGAR',
@@ -63,6 +31,38 @@ const teamMembers = [
     alt: 'James Strydom, Senior Sales Executive at Cybernaut',
     paragraph:
       'Holds a Diploma in Hospitality Management, highlighting commitment to excellence in service delivery. More than 4 years of focused experience in customer relations and guest management, showcasing a keen grasp of client needs and delivering effective solutions.',
+  },
+  {
+    name: 'MARVIN LOPEZ CONCEPCION',
+    designation: 'Sales Executive',
+    image: '/images/team/marvin-lopez-concepcion-sales-executive.png',
+    alt: 'Marvin Lopez Concepcion, Sales Executive at Cybernaut',
+    paragraph:
+      'Holds a Degree in Business Administration, emphasizing a strong foundation in management and business strategy. Over a decade of experience in customer and technical services with a focus on the IT industry, driving growth through innovative solutions and fostering lasting client relationships.',
+  },
+  {
+    name: 'WIN HLAING OO',
+    designation: 'IT Technician',
+    image: '/images/team/win-hlaing-oo-it-technician.png',
+    alt: 'Win Hlaing Oo, IT Technician at Cybernaut',
+    paragraph:
+      'Holds a diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over 7 years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
+  },
+  {
+    name: 'MARK VISCA',
+    designation: 'Jr. IT Technician',
+    image: '/images/team/mark-visca-junior-it-technician.png',
+    alt: 'Mark Visca, Junior IT Technician at Cybernaut',
+    paragraph:
+      'Holds a Certificate in Computer Technology and brings practical knowledge of IT systems, troubleshooting, and support. With a rich blend of experience in hospitality, safety training, and IT support, he combines hands-on technical expertise with excellent problem-solving skills, ensuring dependable and efficient IT assistance.',
+  },
+  {
+    name: 'SHERICK MARK PANTANILLA',
+    designation: 'Jr. IT Technician',
+    image: '/images/team/sherick-mark-pantanilla-junior-it-technician.png',
+    alt: 'Sherick Mark Pantanilla, Junior IT Technician at Cybernaut',
+    paragraph:
+      'Holding a degree in Hotel and Restaurant Management, he has keen attention to detail. With a passion for computer technology, he has developed hands-on knowledge of computer troubleshooting, hardware, software and basic networking, and brings strong customer service and commitment to provide effective technical support.',
   },
 ]
 

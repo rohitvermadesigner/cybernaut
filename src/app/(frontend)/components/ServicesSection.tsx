@@ -138,12 +138,12 @@ export const ServicesSection = () => {
             Services
           </p>
           <h2 className="font-roboto-condensed text-balance font-extrabold uppercase leading-tight text-3xl lg:text-5xl">
-            Powering every click, call and connection
+            Powering every click, call and connection.
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
             IT services that you don’t have to second-guess. We provide streamlined and future-ready
-            infrastructure that helps you maintain your strategic-edge in UAE’s hyper-competitive
-            market.
+            infrastructure that helps you maintain your strategic-edge in the UAE’s
+            hyper-competitive market.
           </p>
         </div>
 

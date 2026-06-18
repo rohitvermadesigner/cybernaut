@@ -132,6 +132,18 @@ export const AboutSection = () => {
     const section = sectionRef.current
     if (!section) return
 
+    const isSectionReadyForSlideChange = () => {
+      const rect = section.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      const tolerance = 4
+
+      if (rect.height <= viewportHeight) {
+        return rect.top <= viewportHeight - rect.height + tolerance && rect.bottom <= viewportHeight + tolerance
+      }
+
+      return rect.top <= tolerance
+    }
+
     const handleWheel = (event: WheelEvent) => {
       const currentSlide = activeSlideRef.current
       const isScrollingDown = event.deltaY > 0
@@ -140,6 +152,7 @@ export const AboutSection = () => {
       const canMoveUp = isScrollingUp && currentSlide > 0
 
       if (!canMoveDown && !canMoveUp) return
+      if (canMoveDown && !isSectionReadyForSlideChange()) return
 
       event.preventDefault()
 

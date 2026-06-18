@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import type { CSSProperties } from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -14,7 +13,7 @@ const heroCopy = {
 }
 
 const heroCopy2 = {
-  title: 'We offer workplace IT solutions, while you accelerate your business',
+  title: 'We offer workplace IT solutions, while you accelerate your business.',
   description:
     'Right from phone systems to internet security, our Cybernauts take care of the tech side so your business can run on lightening speed.',
 }
