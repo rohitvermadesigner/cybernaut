@@ -15,7 +15,7 @@ export const HeaderNav: React.FC<{
   return (
     <>
       <nav
-        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row md:gap-8 md:items-center w-full md:w-auto mt-4 md:mt-0`}
+        className={`${mobileMenuOpen ? 'block' : 'hidden'} md:flex flex-col md:flex-row md:gap-4 lg:gap-8 md:items-center w-full md:w-auto mt-4 md:mt-0`}
         onClick={() => {
           if (mobileMenuOpen) onNavigate?.()
         }}
@@ -29,7 +29,8 @@ export const HeaderNav: React.FC<{
               className="relative 
     text-[#FFF]
     uppercase
-    text-sm
+    md:text-xs
+    lg:text-sm
     justify-start
     md:justify-center
     border-[#ccc]
@@ -52,7 +53,7 @@ export const HeaderNav: React.FC<{
             target="_blank"
             className="triangle-cta text-white py-3 px-6 block"
           >
-            <span className="flex items-center gap-2 uppercase">
+            <span className="flex items-center gap-2 uppercase md:text-sm lg:text-base">
               <FaPhoneAlt className="w-5" /> 800 Cybernaut
             </span>
           </Link>

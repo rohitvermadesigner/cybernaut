@@ -107,7 +107,7 @@ const collageBoxes = [
 
 const TextBox = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h1 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
+    <h1 className="text-balance font-extrabold uppercase leading-tight tracking-normal text-white font-roboto-condensed text-3xl lg:text-4xl xl:text-5xl">
       {heroCopy.title}
     </h1>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
@@ -118,7 +118,7 @@ const TextBox = ({ centered = false }: { centered?: boolean }) => (
 
 const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h2 className="text-balance text-4xl font-extrabold uppercase leading-tight tracking-normal text-white sm:text-5xl lg:text-[2.8rem] font-roboto-condensed">
+    <h2 className="text-balance font-extrabold uppercase leading-tight tracking-normal text-white font-roboto-condensed text-3xl lg:text-4xl xl:text-5xl">
       {heroCopy2.title}
     </h2>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
@@ -137,7 +137,7 @@ const TextBox2 = ({ centered = false }: { centered?: boolean }) => (
 const MobileHero = () => (
   <section
     aria-label="Dedicated IT helpdesk mobile hero"
-    className="relative overflow-hidden bg-black text-white md:hidden"
+    className="relative overflow-hidden bg-black text-white lg:hidden"
     style={{ minHeight: 'calc(100svh - 72px)' }}
   >
     <div className="absolute inset-0">
@@ -153,11 +153,11 @@ const MobileHero = () => (
     />
 
     <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-4 pb-24 pt-20 text-center">
-      <div className="mx-auto max-w-[420px]">
+      <div className="mx-auto md:max-w-[96%] lg:max-w-[420px]">
         <h1 className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
           Launch your mission with advanced IT services
         </h1>
-        <p className="mx-auto mt-3 max-w-[390px] text-[1.28rem] leading-8 text-white/88">
+        <p className="mx-auto mt-3 md:max-w-[96%] lg:max-w-[420px] text-[1.28rem] leading-8 text-white/88">
           IT services and support in Dubai that keeps your business shielded from worrying about
           digital downtime.
         </p>
@@ -283,7 +283,7 @@ export const HeroSection = () => {
         data-lenis-prevent
         ref={sectionRef}
         aria-label="Dedicated IT helpdesk hero slides"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white md:block"
+        className="relative hidden h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white lg:block"
       >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -333,7 +333,7 @@ export const HeroSection = () => {
               <VideoPanel mode="splitVideo" />
             </div>
             <div
-              className={`flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-24 ${
+              className={`flex items-center rounded-[26px] bg-[linear-gradient(135deg,_#1e2b2f,_#0a1013)] px-8 py-12 md:px-14 lg:px-12 xl:px-24 ${
                 activeSlide === 1 ? 'hero-split-panel hero-split-panel--bottom' : ''
               }`}
             >

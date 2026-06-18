@@ -13,7 +13,7 @@ export default async function BlogSection() {
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
             BLOGS
           </p>
-          <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight sm:text-5xl text-white">
+          <h2 className="font-roboto-condensed text-balance font-extrabold uppercase leading-tight text-white text-3xl lg:text-5xl">
             Information Hub
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">

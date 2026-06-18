@@ -69,7 +69,7 @@ const teamMembers = [
 type TeamMember = (typeof teamMembers)[number]
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <article className="grid min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white sm:grid-cols-[minmax(0,1fr)_250px]">
+  <article className="grid min-h-[750px] md:min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white md:grid-cols-[1.2fr_0.8fr]">
     <div className="flex flex-col justify-start p-6 sm:p-8">
       <h3 className="font-roboto-condensed text-2xl md:text-3xl font-bold uppercase leading-tight">
         {member.name}
@@ -80,12 +80,16 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
       </p>
     </div>
 
-    <div className="relative mx-auto w-[60%] md:w-[100%] min-h-[250px] md:min-h-[250px]">
+    {/* <div className="relative mx-auto w-[50%] md:w-[100%] min-h-[300px] md:min-h-[250px]"> */}
+    <div className="relative">
       <Image
         src={member.image}
         alt={member.alt}
-        fill
-        className="object-cover"
+        // fill
+        height={0}
+        width={48}
+        // className="object-cover"
+        className="w-80 md:w-80 h-80 md:h-80 absolute bottom-0 left-0 right-0 mr-auto ml-auto"
         sizes="(max-width: 640px) 40vw, 220px"
       />
     </div>
@@ -98,12 +102,12 @@ export const TeamSection = () => {
 
   return (
     <section aria-label="Cybernaut team" className="py-8 text-[#251f5d] lg:py-12" id="team">
-      <div className="container grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
-        <div className="lg:sticky lg:top-28 text-center md:text-left">
+      <div className="container grid gap-12 xl:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div className="xl:sticky xl:top-28 text-center md:text-left">
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
             Team
           </p>
-          <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight text-[#fff] sm:text-5xl">
+          <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight text-[#fff] text-3xl lg:text-5xl">
             MEET THE FACES BEHIND THE TECH
           </h2>
           <div className="mt-6 space-y-5 text-base md:text-lg md:font-thin md:tracking-wider leading-8 text-[#fff]">

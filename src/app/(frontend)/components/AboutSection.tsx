@@ -36,10 +36,7 @@ const movingValue = values[1]
 const MobileAboutSection = () => (
   <section
     aria-label="About Cybernaut mobile"
-    className="relative overflow-hidden bg-cover bg-top bg-center px-4 pb-8 pt-8 text-white md:hidden text-center"
-    style={{
-      minHeight: '529px',
-    }}
+    className="relative overflow-hidden bg-cover bg-top bg-center px-4 pb-8 pt-8 text-white lg:hidden text-center"
   >
     <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
       <Image
@@ -52,12 +49,12 @@ const MobileAboutSection = () => (
       />
     </div>
 
-    <div className="relative max-w-[430px]" style={{ zIndex: 10 }}>
+    <div className="relative" style={{ zIndex: 10 }}>
       <p className="mb-4 text-xl font-extralight uppercase leading-none tracking-normal text-[#27b7f6]">
         About Us
       </p>
       <h2
-        className="font-roboto-condensed font-extrabold uppercase tracking-normal"
+        className="font-roboto-condensed font-extrabold uppercase tracking-normal font-roboto-condensed text-3xl lg:text-5xl"
         style={{ fontSize: '1.95rem', lineHeight: 1.12 }}
       >
         Safeguarding your business against downtime and online threats
@@ -68,7 +65,7 @@ const MobileAboutSection = () => (
       </p> */}
       <p
         className="mt-4 text-white/94 md:font-thin md:tracking-wider mt-10"
-        style={{ maxWidth: '395px', fontSize: '1.04rem', lineHeight: 1.58 }}
+        style={{ fontSize: '1.04rem', lineHeight: 1.58 }}
       >
         We understand that a lot of time and energy is lost to IT issues that shouldn’t have flared
         up in the first place. To thrive in a digital-first ecosystem, Cybernaut becomes your ace in
@@ -168,7 +165,7 @@ export const AboutSection = () => {
         data-lenis-prevent
         ref={sectionRef}
         aria-label="About Cybernaut"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] md:block"
+        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] lg:block"
       >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -183,7 +180,7 @@ export const AboutSection = () => {
               <p className="mb-5 text-2xl font-bold uppercase text-[var(--skyBlue)] font-extralight">
                 About Us
               </p>
-              <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl font-roboto-condensed">
+              <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight font-roboto-condensed text-3xl lg:text-5xl">
                 Safeguarding your business against downtime and online threats
               </h2>
             </div>
@@ -249,7 +246,7 @@ export const AboutSection = () => {
                 </p>
               </div>
 
-              <div className="mt-2 grid gap-6 md:grid-cols-3 lg:gap-8 p-24">
+              <div className="mt-2 grid md:grid-cols-3 lg:gap-4 xl:gap-8 lg:p-0 xl:p-24">
                 {values.map((value, index) =>
                   index === 1 ? (
                     <div key={value.title} aria-hidden="true" />
@@ -285,7 +282,7 @@ export const AboutSection = () => {
         <article
           className={`about-moving-card pointer-events-none absolute z-20 rounded-[14px] bg-[url(/images/about/card-bg-center.png)] bg-top bg-center bg-no-repeat border-4 border-[#ccc] p-5 shadow-[0_20px_60px_rgba(37,31,93,0.12)] ${
             activeSlide === 1
-              ? 'about-moving-card--details bg-[center_top_-200px] py-10 px-5 w-80 h-[30rem] -mt-20'
+              ? 'about-moving-card--details bg-[center_top_-200px] py-10 px-5 lg:w-72 xl:w-80 h-[30rem] -mt-20'
               : 'about-moving-card--intro w-96 h-[40rem] mt-16 px-16'
           }`}
         >

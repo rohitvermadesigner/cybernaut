@@ -75,7 +75,7 @@ body {
     display: block;
   }
 
-  @media (width >= 64rem) {
+  @media (width >= 1279px) {
     .services-mobile-slider {
       display: none;
     }
@@ -89,7 +89,7 @@ body {
     display: none;
   }
 
-  @media (width >= 64rem) {
+  @media (width >= 1279px) {
     .team-mobile-slider {
       display: none;
     }

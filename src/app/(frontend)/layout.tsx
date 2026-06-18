@@ -10,7 +10,7 @@ import { Footer } from '@/Footer/Component'
 import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
-import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { draftMode } from 'next/headers'
 
 import './globals.css'
@@ -52,6 +52,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
       </head>
       <body className="bg-[url('/images/bg-m.png')] md:bg-[url('/images/bg.png')] bg-top bg-center bg-cover bg-no-repeat bg-fixed">
+        <GoogleTagManager gtmId="GTM-TBCXRKFK" />
         <InitTheme />
         <Providers>
           <AdminBar

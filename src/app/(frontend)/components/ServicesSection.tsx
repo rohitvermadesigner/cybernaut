@@ -137,7 +137,7 @@ export const ServicesSection = () => {
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
             Services
           </p>
-          <h2 className="font-roboto-condensed text-balance text-3xl font-extrabold uppercase leading-tight sm:text-5xl">
+          <h2 className="font-roboto-condensed text-balance font-extrabold uppercase leading-tight text-3xl lg:text-5xl">
             Powering every click, call and connection
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
@@ -148,7 +148,18 @@ export const ServicesSection = () => {
         </div>
 
         <div className="services-mobile-slider mt-12">
-          <Swiper slidesPerView={1.2} spaceBetween={24}>
+          <Swiper
+            slidesPerView={1.2}
+            spaceBetween={24}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+          >
             {services.map((service) => (
               <SwiperSlide key={service.title} className="h-auto">
                 <ServiceCard service={service} />
@@ -157,7 +168,7 @@ export const ServicesSection = () => {
           </Swiper>
         </div>
 
-        <div className="mt-12 hidden gap-6 lg:grid lg:grid-cols-4">
+        <div className="mt-12 hidden gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
