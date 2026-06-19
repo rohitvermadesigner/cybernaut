@@ -13,7 +13,7 @@ const socialLinks = [
     icon: FaLinkedinIn,
   },
   {
-    href: 'https://www.youtube.com/@ExcellenceGroup-nt4ml',
+    href: 'https://www.youtube.com/@Cybernautme',
     label: 'YouTube',
     rel: 'nofollow',
     icon: FaYoutube,
@@ -65,7 +65,7 @@ export async function Footer() {
 
         <div className="container relative z-10 px-6 py-12 sm:py-6 lg:px-8 lg:pt-12">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1.15fr_1.1fr] lg:gap-16 xl:gap-24">
-            <section className="max-w-[260px]">
+            <section className="max-w-full md:max-w-[260px] text-center md:text-left">
               <Link
                 href="/"
                 aria-label="Cybernaut home"
@@ -85,7 +85,7 @@ export async function Footer() {
                 Navigating the digital frontier with innovative IT services for modern businesses.
               </p>
 
-              <div className="mt-7 flex gap-4">
+              <div className="mt-7 flex gap-4 justify-center md:justify-start">
                 {socialLinks.map(({ href, label, rel, icon: Icon }) => (
                   <Link
                     key={label}
@@ -103,7 +103,7 @@ export async function Footer() {
 
             <section>
               <FooterHeading title="Quick Links" />
-              <nav className="mt-7 flex flex-col gap-4">
+              <nav className="mt-7 flex flex-row md:flex-col flex-wrap gap-y-4 gap-x-20 md:gap-4">
                 {/* {quickLinks.map((item) => (
                   <Link
                     key={item}
@@ -182,6 +182,7 @@ export async function Footer() {
                   allowFullScreen
                   referrerPolicy="no-referrer-when-downgrade"
                   className="h-full w-full"
+                  title="Google Maps location of Cybernaut"
                 />
               </div>
             </section>

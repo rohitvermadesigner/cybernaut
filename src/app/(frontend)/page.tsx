@@ -22,6 +22,7 @@ const jsonLd = {
   organization: {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://www.cybernautme.com',
     name: 'Cybernaut',
     url: 'https://www.cybernautme.com',
     logo: 'https://cybernaut.excellenceauditing.net/images/logo.svg',
@@ -35,7 +36,7 @@ const jsonLd = {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+97145725191',
+        telephone: '800 292376288',
         contactType: 'customer service',
         areaServed: 'Dubai',
         availableLanguage: ['en', 'ar'],
@@ -45,16 +46,18 @@ const jsonLd = {
       'https://www.facebook.com/cybernautme/',
       'https://www.instagram.com/cybernautme/',
       'https://www.linkedin.com/company/cybernautme/',
+      'https://www.youtube.com/@Cybernautme',
     ],
   },
 
   localBusiness: {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
+    '@id': 'https://www.cybernautme.com',
     name: 'Cybernaut',
     image: 'https://cybernaut.excellenceauditing.net/images/logo.svg',
     url: 'https://www.cybernautme.com',
-    telephone: '+97145725191',
+    telephone: '800 292376288',
     priceRange: 'AED',
     address: {
       '@type': 'PostalAddress',
@@ -79,6 +82,7 @@ const jsonLd = {
       'https://www.facebook.com/cybernautme/',
       'https://www.instagram.com/cybernautme/',
       'https://www.linkedin.com/company/cybernautme/',
+      'https://www.youtube.com/@Cybernautme',
     ],
   },
 }

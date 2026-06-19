@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 
@@ -69,13 +70,15 @@ const teamMembers = [
 type TeamMember = (typeof teamMembers)[number]
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <article className="grid min-h-[750px] md:min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white md:grid-cols-[1.2fr_0.8fr]">
+  <article className="grid min-h-[525px] md:min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white md:grid-cols-[1.2fr_0.8fr]">
     <div className="flex flex-col justify-start p-6 sm:p-8">
       <h3 className="font-roboto-condensed text-2xl md:text-3xl font-bold uppercase leading-tight">
         {member.name}
       </h3>
-      <p className="mt-2 text-base font-medium tracking-wide">{member.designation}</p>
-      <p className="mt-4 md:mt-10 text-base font-thin leading-7 tracking-wide">
+      <p className="mt-2 text-base font-medium md:font-thin md:tracking-wider">
+        {member.designation}
+      </p>
+      <p className="mt-4 md:mt-10 text-sm md:text-[1rem] leading-6 md:font-thin md:tracking-wider">
         {member.paragraph}
       </p>
     </div>
@@ -89,7 +92,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
         height={0}
         width={48}
         // className="object-cover"
-        className="w-80 md:w-80 h-80 md:h-80 absolute bottom-0 left-0 right-0 mr-auto ml-auto"
+        className="w-56 md:w-80 h-56 md:h-80 absolute bottom-0 left-0 right-0 mr-auto ml-auto"
         sizes="(max-width: 640px) 40vw, 220px"
       />
     </div>
@@ -110,7 +113,7 @@ export const TeamSection = () => {
           <h2 className="font-roboto-condensed text-balance text-3xl md:text-5xl font-extrabold uppercase leading-tight text-[#fff] text-3xl lg:text-5xl">
             MEET THE FACES BEHIND THE TECH
           </h2>
-          <div className="mt-6 space-y-5 text-base md:text-lg md:font-thin md:tracking-wider leading-8 text-[#fff]">
+          <div className="mt-6 space-y-5 text-base md:text-lg md:font-thin md:tracking-wider text-[#fff]">
             <p>
               At Cybernaut, we have a saying, “Behind every leading IT service provider in Dubai is
               a team of curious minds and experienced specialists.“
@@ -125,6 +128,12 @@ export const TeamSection = () => {
 
         <div className="team-mobile-slider min-w-0">
           <Swiper
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 6000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
             slidesPerView={1}
             spaceBetween={24}
             onSwiper={(swiper) => {
@@ -140,7 +149,7 @@ export const TeamSection = () => {
             ))}
           </Swiper>
 
-          <div className="mt-6 flex items-center justify-center gap-2" aria-label="Team slides">
+          {/* <div className="mt-6 flex items-center justify-center gap-2" aria-label="Team slides">
             {teamMembers.map((member, index) => (
               <button
                 key={member.name}
@@ -156,7 +165,7 @@ export const TeamSection = () => {
                 }}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div

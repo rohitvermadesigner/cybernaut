@@ -56,7 +56,7 @@ export const VideoSection = () => {
       </div>
 
       <div className="container">
-        <div className="mx-auto w-full">
+        <div className="mx-auto max-w-4xl">
           <Swiper
             modules={[Autoplay]}
             slidesPerView={1}
@@ -75,7 +75,7 @@ export const VideoSection = () => {
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id}>
-                <div className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.35)] md:h-88 lg:h-110 xl:h-132">
+                <div className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black shadow-[0_24px_70px_rgba(0,0,0,0.35)]">
                   <iframe
                     className="h-full w-full"
                     width="560"

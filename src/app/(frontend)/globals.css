@@ -618,3 +618,11 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .core-value-parent-mobile .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

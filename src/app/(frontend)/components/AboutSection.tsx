@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const aboutSlides = 2
 
@@ -36,49 +37,94 @@ const movingValue = values[1]
 const MobileAboutSection = () => (
   <section
     aria-label="About Cybernaut mobile"
-    className="relative overflow-hidden bg-cover bg-top bg-center px-4 pb-8 pt-8 text-white lg:hidden text-center"
+    className="overflow-hidden bg-cover bg-top bg-center px-4 pb-8 pt-8 text-white xl:hidden text-center"
   >
-    <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
-      <Image
-        src="/images/about/client-centric-it-support-services-icon.png"
-        alt=""
-        fill
-        sizes="260px"
-        className="object-contain object-bottom"
-        aria-hidden="true"
-      />
+    <div className="relative">
+      <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
+        <Image
+          src="/images/about/client-centric-it-support-services-icon.png"
+          alt=""
+          fill
+          sizes="260px"
+          className="object-contain object-bottom"
+          aria-hidden="true"
+        />
+      </div>
+
+      <div className="relative">
+        <p className="mb-4 text-xl font-extralight uppercase leading-none tracking-normal text-[#27b7f6]">
+          About Us
+        </p>
+        <h2 className="font-roboto-condensed font-extrabold uppercase tracking-normal font-roboto-condensed text-[1.5rem] lg:text-5xl">
+          Safeguarding your business against downtime and online threats
+        </h2>
+        <p className="mt-4 text-white/94 md:font-thin md:tracking-wider mt-5 text-base md:text-lg">
+          We understand that a lot of time and energy is lost to IT issues that shouldn’t have
+          flared up in the first place. To thrive in a digital-first ecosystem, Cybernaut becomes
+          your ace in the hole. A leading IT Company in Dubai, Cybernaut has designed IT services
+          with a belief that productivity and continuity keeps your business on track.
+        </p>
+        <Link
+          href="about"
+          target="_blank"
+          className="triangle-cta mt-5 inline-block px-6 py-3 text-base font-medium text-white"
+        >
+          <span>Know More</span>
+        </Link>
+      </div>
     </div>
 
-    <div className="relative" style={{ zIndex: 10 }}>
+    <div className="relative mt-10">
       <p className="mb-4 text-xl font-extralight uppercase leading-none tracking-normal text-[#27b7f6]">
-        About Us
+        CORE VALUES
       </p>
-      <h2
-        className="font-roboto-condensed font-extrabold uppercase tracking-normal font-roboto-condensed text-3xl lg:text-5xl"
-        style={{ fontSize: '1.95rem', lineHeight: 1.12 }}
-      >
-        Safeguarding your business against downtime and online threats
+      <h2 className="font-roboto-condensed font-extrabold uppercase tracking-normal font-roboto-condensed text-[1.5rem] lg:text-5xl">
+        What Makes Cybernaut Different
       </h2>
-      {/* <p className="text-[1.28rem] mt-4">
-        Helping you stay on course while we take care of the blinking router side of your operations
-        in the background.
-      </p> */}
-      <p
-        className="mt-4 text-white/94 md:font-thin md:tracking-wider mt-10"
-        style={{ fontSize: '1.04rem', lineHeight: 1.58 }}
-      >
-        We understand that a lot of time and energy is lost to IT issues that shouldn’t have flared
-        up in the first place. To thrive in a digital-first ecosystem, Cybernaut becomes your ace in
-        the hole. A leading IT Company in Dubai, Cybernaut has designed IT services with a belief
-        that productivity and continuity keeps your business on track.
+      <p className="mt-4 text-white/94 md:font-thin md:tracking-wider mt-5 text-base md:text-lg">
+        Our dedicated IT support team ensures uninterrupted functioning of your digital
+        infrastructure.
       </p>
-      <Link
-        href="about"
-        target="_blank"
-        className="triangle-cta mt-5 inline-block px-6 py-3 text-base font-medium text-white"
+
+      <Swiper
+        slidesPerView={1.2}
+        spaceBetween={5}
+        breakpoints={{
+          768: {
+            slidesPerView: 2.2,
+          },
+          1024: {
+            slidesPerView: 3.2,
+          },
+        }}
+        className="core-value-parent-mobile"
       >
-        <span>Know More</span>
-      </Link>
+        {values.map((value, index) => (
+          <SwiperSlide key={value.title} className="h-auto mt-5">
+            <article
+              key={value.title}
+              className="about-value-card about-value-card--active rounded-[14px] bg-[url(/images/about/card-bg.png)] bg-cover bg-top bg-center bg-no-repeat py-5 px-2 shadow-[0_20px_60px_rgba(37,31,93,0.12)] w-[90%] mx-auto border-2 border-[#ccc] min-h-[372px]"
+              style={{ '--about-card-delay': `${index * 120}ms` } as CSSProperties}
+            >
+              <div className="relative h-32 overflow-hidden rounded-[22px]">
+                <Image
+                  src={value.image}
+                  alt={value.alt}
+                  fill
+                  sizes="(min-width: 768px) 30vw, 90vw"
+                  className="object-contain"
+                />
+              </div>
+              <div className="px-2 pb-3 pt-6 text-center">
+                <h3 className="text-[1.3rem] font-medium text-[#fff]">{value.title}</h3>
+                <p className="mt-3 text-[#fff] text-sm font-thin tracking-wider">
+                  {value.description}
+                </p>
+              </div>
+            </article>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   </section>
 )
@@ -138,7 +184,10 @@ export const AboutSection = () => {
       const tolerance = 4
 
       if (rect.height <= viewportHeight) {
-        return rect.top <= viewportHeight - rect.height + tolerance && rect.bottom <= viewportHeight + tolerance
+        return (
+          rect.top <= viewportHeight - rect.height + tolerance &&
+          rect.bottom <= viewportHeight + tolerance
+        )
       }
 
       return rect.top <= tolerance
@@ -178,7 +227,7 @@ export const AboutSection = () => {
         data-lenis-prevent
         ref={sectionRef}
         aria-label="About Cybernaut"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] lg:block"
+        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] xl:block"
       >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
@@ -193,7 +242,7 @@ export const AboutSection = () => {
               <p className="mb-5 text-2xl font-bold uppercase text-[var(--skyBlue)] font-extralight">
                 About Us
               </p>
-              <h2 className="mx-auto max-w-5xl text-balance text-4xl font-extrabold uppercase leading-tight font-roboto-condensed text-3xl lg:text-5xl">
+              <h2 className="mx-auto max-w-5xl text-balance font-extrabold uppercase leading-tight font-roboto-condensed text-3xl lg:text-5xl">
                 Safeguarding your business against downtime and online threats
               </h2>
             </div>

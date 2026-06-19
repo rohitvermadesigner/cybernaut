@@ -45,7 +45,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
             />
           </Link>
           <div className="flex items-center gap-4">
-            <ul className={` block md:hidden  flex md:flex gap-4 mt-2 md:mt-0`}>
+            <ul className={` block md:hidden  flex md:flex gap-4`}>
               <li>
                 <Link
                   href="tel:800 292376288"

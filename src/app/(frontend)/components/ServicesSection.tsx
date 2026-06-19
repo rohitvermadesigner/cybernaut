@@ -117,7 +117,9 @@ const ServiceCard = ({ service }: { service: Service }) => (
       <ul className="absolute bottom-10 md:bottom-18 m-auto w-[90%] translate-x-0 md:-translate-x-10 space-y-3 text-sm font-thin leading-6 tracking-wide text-white transition duration-500 ease-out group-hover:md:translate-x-0">
         {service.items.map((item) => (
           <li key={item} className="flex gap-3">
-            <span className="rounded-2xl bg-white px-3 py-1 text-[#000]">{item}</span>
+            <span className="rounded-2xl bg-white px-3 py-1 text-[#000]/70 font-medium">
+              {item}
+            </span>
           </li>
         ))}
       </ul>
@@ -138,7 +140,7 @@ export const ServicesSection = () => {
           <p className="mb-4 text-xl md:text-2xl font-extralight uppercase text-[var(--skyBlue)]">
             Services
           </p>
-          <h2 className="font-roboto-condensed text-balance font-extrabold uppercase leading-tight text-3xl lg:text-5xl">
+          <h2 className="font-roboto-condensed text-balance font-extrabold uppercase leading-tight text-[1.5rem] lg:text-5xl">
             Powering every click, call and connection.
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
