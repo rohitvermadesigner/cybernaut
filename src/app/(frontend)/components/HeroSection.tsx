@@ -21,12 +21,10 @@ const heroCopy2 = {
 const videoAssets = {
   splitVideo: {
     mp4: '/images/hero/hero.mp4',
-    webm: '/images/hero/hero.webm',
     poster: '/images/hero/video-bg.png',
   },
   backgroundVideo: {
     mp4: '/images/hero/hero.mp4',
-    webm: '/images/hero/hero.webm',
     poster: '/images/hero/video-bg.png',
   },
 }
@@ -191,7 +189,6 @@ const VideoPanel = ({
       preload="metadata"
       poster={asset.poster}
     >
-      <source src={asset.webm} type="video/webm" />
       <source src={asset.mp4} type="video/mp4" />
     </video>
   )

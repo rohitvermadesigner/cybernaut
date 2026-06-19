@@ -88,7 +88,7 @@ const services = [
 type Service = (typeof services)[number]
 
 const ServiceCard = ({ service }: { service: Service }) => (
-  <article className="group relative h-[450px] overflow-hidden rounded-2xl border border-white/14 bg-black shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+  <article className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/14 bg-black shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
     {/* <Link href="services"> */}
     <div className="absolute inset-x-0 top-0 z-20 p-5">
       <h3 className="font-roboto-condensed text-2xl font-bold leading-tight text-white uppercase">
@@ -97,9 +97,10 @@ const ServiceCard = ({ service }: { service: Service }) => (
     </div>
     <Image
       src="/images/services/shadow.png"
-      alt={service.title}
+      alt=""
       fill
-      className="absolute bottom-0 left-0 z-10"
+      className="absolute inset-0 z-10 object-cover"
+      aria-hidden="true"
     />
     <Image
       src={service.image}
@@ -147,16 +148,16 @@ export const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="services-mobile-slider mt-12">
+        <div className="xl:hidden mt-12">
           <Swiper
             slidesPerView={1.2}
             spaceBetween={24}
             breakpoints={{
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.2,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 3.2,
               },
             }}
           >
@@ -168,7 +169,7 @@ export const ServicesSection = () => {
           </Swiper>
         </div>
 
-        <div className="mt-12 hidden gap-6 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-12 hidden gap-6 xl:grid xl:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}

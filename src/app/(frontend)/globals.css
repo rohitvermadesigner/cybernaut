@@ -71,16 +71,6 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
-  .services-mobile-slider {
-    display: block;
-  }
-
-  @media (width >= 1279px) {
-    .services-mobile-slider {
-      display: none;
-    }
-  }
-
   .team-mobile-slider {
     display: block;
   }

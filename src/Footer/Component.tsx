@@ -1,18 +1,35 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { Mail, MapPin, Phone, Send, Sparkles } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import { CMSLink } from '@/components/Link'
 
-// const quickLinks = ['Home', 'About Us', 'Our Services', 'Blogs', 'Our Team', 'Contact Us']
-
 const socialLinks = [
-  { href: 'https://www.linkedin.com/company/cybernautme/', label: 'LinkedIn', icon: FaLinkedinIn },
-  { href: 'https://www.facebook.com/cybernautme/', label: 'Facebook', icon: FaFacebookF },
-  { href: 'https://www.youtube.com/@ExcellenceGroup-nt4ml', label: 'YouTube', icon: FaYoutube },
-  { href: 'https://www.instagram.com/cybernautme/', label: 'Instagram', icon: FaInstagram },
+  {
+    href: 'https://www.linkedin.com/company/cybernautme/',
+    label: 'LinkedIn',
+    rel: 'nofollow',
+    icon: FaLinkedinIn,
+  },
+  {
+    href: 'https://www.youtube.com/@ExcellenceGroup-nt4ml',
+    label: 'YouTube',
+    rel: 'nofollow',
+    icon: FaYoutube,
+  },
+  {
+    href: 'https://www.facebook.com/cybernautme/',
+    label: 'Facebook',
+    rel: 'nofollow',
+    icon: FaFacebookF,
+  },
+  {
+    href: 'https://www.instagram.com/cybernautme/',
+    label: 'Instagram',
+    rel: 'nofollow',
+    icon: FaInstagram,
+  },
 ]
 
 const contactItems = [
@@ -69,11 +86,12 @@ export async function Footer() {
               </p>
 
               <div className="mt-7 flex gap-4">
-                {socialLinks.map(({ href, label, icon: Icon }) => (
+                {socialLinks.map(({ href, label, rel, icon: Icon }) => (
                   <Link
                     key={label}
                     href={href}
                     aria-label={label}
+                    rel={rel}
                     target="_blank"
                     className="grid h-10 w-10 place-items-center rounded-[12px] bg-[#27b7f6] text-white shadow-[0_10px_24px_rgba(39,183,246,0.2)] transition hover:bg-white hover:text-[#1a98d5] duration-300"
                   >
