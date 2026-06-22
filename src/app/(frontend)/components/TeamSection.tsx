@@ -31,7 +31,7 @@ const teamMembers = [
     image: '/images/team/james-strydom-sales-executive.png',
     alt: 'James Strydom, Senior Sales Executive at Cybernaut',
     paragraph:
-      'Holds a Diploma in Hospitality Management, highlighting commitment to excellence in service delivery. More than 4 years of focused experience in customer relations and guest management, showcasing a keen grasp of client needs and delivering effective solutions.',
+      'Holds a Diploma in Hospitality Management, highlighting commitment to excellence in service delivery. More than four years of focused experience in customer relations and guest management, showcasing a keen grasp of client needs and delivering effective solutions.',
   },
   {
     name: 'MARVIN LOPEZ CONCEPCION',
@@ -47,7 +47,7 @@ const teamMembers = [
     image: '/images/team/win-hlaing-oo-it-technician.png',
     alt: 'Win Hlaing Oo, IT Technician at Cybernaut',
     paragraph:
-      'Holds a Diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over 7 years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
+      'Holds a Diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over seven years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
   },
   {
     name: 'MARK VISCA',
