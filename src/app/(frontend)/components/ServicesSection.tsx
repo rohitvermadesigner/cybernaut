@@ -128,7 +128,7 @@ export const ServicesSection = () => {
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
             IT services that you don’t have to second-guess. We provide streamlined and future-ready
-            IT Solutions that helps you maintain your strategic-edge in the UAE’s hyper-competitive
+            IT services that helps you maintain your strategic-edge in the UAE’s hyper-competitive
             market.
           </p>
         </div>
