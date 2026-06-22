@@ -89,7 +89,7 @@ export default async function Post({ params: paramsPromise }: Args) {
 
             <div>
               <RichText
-                className="mb-5 text-black text-justify"
+                className="mb-5 text-black text-justify richtext-custom"
                 data={post.content}
                 enableGutter={false}
               />

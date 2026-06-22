@@ -626,3 +626,23 @@ html[data-theme='light'] {
     align-items: center;
   }
 }
+
+.richtext-custom h1,
+.richtext-custom h2,
+.richtext-custom h3,
+.richtext-custom h4,
+.richtext-custom h5,
+.richtext-custom h6 {
+  color: #000;
+  text-transform: uppercase;
+  font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.richtext-custom h2{
+  font-size: 2rem;
+}
+
+.richtext-custom p{
+ @apply text-base md:text-lg md:font-thin md:tracking-wider;
+}
