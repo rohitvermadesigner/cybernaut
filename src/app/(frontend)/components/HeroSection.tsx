@@ -275,12 +275,13 @@ export const HeroSection = () => {
   return (
     <>
       <MobileHero />
-      <section
-        data-lenis-prevent
-        ref={sectionRef}
-        aria-label="Dedicated IT helpdesk hero slides"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[680px] overflow-hidden bg-black text-white lg:block"
-      >
+      <div className="relative hidden h-[calc(300svh-264px)] lg:block">
+        <section
+          data-lenis-prevent
+          ref={sectionRef}
+          aria-label="Dedicated IT helpdesk hero slides"
+          className="relative sticky top-[88px] h-[calc(100svh-88px)] overflow-hidden bg-black text-white"
+        >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
             activeSlide === 0
@@ -381,7 +382,8 @@ export const HeroSection = () => {
             />
           ))}
         </div>
-      </section>
+        </section>
+      </div>
     </>
   )
 }

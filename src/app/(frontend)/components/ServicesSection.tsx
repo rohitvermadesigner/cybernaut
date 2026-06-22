@@ -11,10 +11,9 @@ const services = [
     image: '/images/services/it-maintenance-technical-support.jpg',
     alt: 'An IT maintenance support professional works at a desk equipped with multiple computer monitors and laptops',
     items: [
-      'End-to-end IT Support in Dubai',
+      'End-to-end IT Maintenance in Dubai',
       'Server and Wifi Support',
       'Workplace IT Support',
-      'Biometric Management Support',
     ],
   },
   {

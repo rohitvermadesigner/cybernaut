@@ -181,16 +181,19 @@ export const AboutSection = () => {
     const isSectionReadyForSlideChange = () => {
       const rect = section.getBoundingClientRect()
       const viewportHeight = window.innerHeight
+      const navigationHeight = 88
       const tolerance = 4
 
       if (rect.height <= viewportHeight) {
         return (
-          rect.top <= viewportHeight - rect.height + tolerance &&
+          rect.top <= navigationHeight + tolerance &&
           rect.bottom <= viewportHeight + tolerance
         )
       }
 
-      return rect.top <= tolerance
+      // When the section is taller than the viewport, wait until its top reaches
+      // the bottom edge of the fixed navigation before switching slides.
+      return rect.top <= navigationHeight + tolerance
     }
 
     const handleWheel = (event: WheelEvent) => {
@@ -223,12 +226,13 @@ export const AboutSection = () => {
   return (
     <div id="aboutus">
       <MobileAboutSection />
-      <section
-        data-lenis-prevent
-        ref={sectionRef}
-        aria-label="About Cybernaut"
-        className="relative hidden h-[calc(100vh-88px)] min-h-[820px] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF] xl:block"
-      >
+      <div className="relative hidden h-[calc(200svh-176px)] xl:block">
+        <section
+          data-lenis-prevent
+          ref={sectionRef}
+          aria-label="About Cybernaut"
+          className="relative sticky top-[88px] h-[calc(100svh-88px)] overflow-hidden bg-[url('/images/bg.png')] bg-cover text-[#FFF]"
+        >
         <div
           className={`absolute inset-0 transition-all duration-700 ease-out ${
             activeSlide === 0
@@ -308,7 +312,7 @@ export const AboutSection = () => {
                 </p>
               </div>
 
-              <div className="mt-2 grid md:grid-cols-3 lg:gap-4 xl:gap-8 lg:p-0 xl:p-24">
+              <div className="mt-2 grid md:grid-cols-3 lg:gap-4 xl:gap-8 lg:p-0 lg:p-16 xl:p-10 2xl:p-24">
                 {values.map((value, index) =>
                   index === 1 ? (
                     <div key={value.title} aria-hidden="true" />
@@ -377,7 +381,8 @@ export const AboutSection = () => {
             />
           ))}
         </div>
-      </section>
+        </section>
+      </div>
     </div>
   )
 }
