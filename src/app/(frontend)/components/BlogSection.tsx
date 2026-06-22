@@ -65,7 +65,7 @@ export default async function BlogSection() {
                     <Link
                       href={`/posts/${post.slug}`}
                       target="_blank"
-                      className="triangle-cta text-white py-3 px-6 block mt-4 inline-block mt-8"
+                      className="triangle-cta text-white hover:text-black py-3 px-6 block mt-4 inline-block mt-8"
                     >
                       <span className="flex items-center gap-2">Know More</span>
                     </Link>

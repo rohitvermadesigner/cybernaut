@@ -64,7 +64,7 @@ export async function Footer() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,32,40,0.92),rgba(3,10,13,0.98)_48%,rgba(0,0,0,1))]" /> */}
 
         <div className="container relative z-10 px-6 py-12 sm:py-6 lg:px-8 lg:pt-12">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1.15fr_1.1fr] lg:gap-16 xl:gap-24">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1.3fr_1.1fr] lg:gap-16 xl:gap-24">
             <section className="max-w-full md:max-w-[260px] text-center md:text-left">
               <Link
                 href="/"
@@ -93,7 +93,7 @@ export async function Footer() {
                     aria-label={label}
                     rel={rel}
                     target="_blank"
-                    className="grid h-10 w-10 place-items-center rounded-[12px] bg-[#27b7f6] text-white shadow-[0_10px_24px_rgba(39,183,246,0.2)] transition hover:bg-white hover:text-[#1a98d5] duration-300"
+                    className="grid h-10 w-10 place-items-center rounded-[12px] bg-[var(--skyBlue)] text-black shadow-[0_10px_24px_rgba(39,183,246,0.2)] transition hover:bg-white hover:text-black duration-300"
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </Link>
@@ -130,7 +130,7 @@ export async function Footer() {
                     block
                     transition-all
                     duration-300
-                    hover:text-[#CCC]
+                    hover:text-[var(--skyBlue)]
                 "
                     />
                   )
@@ -144,11 +144,11 @@ export async function Footer() {
                 {contactItems.map(({ icon: Icon, label, href }) => {
                   const content = (
                     <>
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] bg-[#283439] text-[#27b7f6]">
+                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] bg-[#283439] text-[var(--skyBlue)]">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
                       <span
-                        className={`text-[0.92rem] leading-6 text-[#90A1B9] ${href ? 'hover:text-white' : ''}`}
+                        className={`text-[0.92rem] leading-6 text-[#90A1B9] ${href ? 'hover:text-[var(--skyBlue)]' : ''}`}
                       >
                         {label}
                       </span>
@@ -200,7 +200,7 @@ export async function Footer() {
 function FooterHeading({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="h-5 w-[3px] rounded-full bg-[#25bdfb]" />
+      <span className="h-5 w-[3px] rounded-full bg-[var(--skyBlue)]" />
       <h2 className="font-roboto-condensed text-lg font-bold text-white uppercase">{title}</h2>
     </div>
   )

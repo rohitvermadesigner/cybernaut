@@ -514,7 +514,7 @@ body {
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
   --navyBlue: #251f5d;
-  --skyBlue: #1a98d5;
+  --skyBlue: #74FFCF;
 }
 
 [data-theme='dark'] {
@@ -555,7 +555,7 @@ body {
   --error: oklch(45% 0.1 25deg);
   --textPrimary: #373737;
   --navyBlue: #251f5d;
-  --skyBlue: #1a98d5;
+  --skyBlue: #74FFCF;
 }
 
 @theme inline {

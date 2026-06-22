@@ -40,7 +40,7 @@ export const HeaderNav: React.FC<{
     md:py-0
     transition-all
     duration-300
-    hover:text-[#CCC]
+    hover:text-[#74FFCF]
 "
             />
           )
@@ -51,7 +51,7 @@ export const HeaderNav: React.FC<{
           <Link
             href="tel:800 292376288"
             target="_blank"
-            className="triangle-cta text-white py-3 px-6 block"
+            className="triangle-cta text-white hover:text-black py-3 px-6 block"
           >
             <span className="flex items-center gap-2 uppercase md:text-sm lg:text-base">
               <FaPhoneAlt className="w-5" /> 800 Cybernaut

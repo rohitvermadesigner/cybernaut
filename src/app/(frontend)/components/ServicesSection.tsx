@@ -20,42 +20,31 @@ const services = [
     title: 'Network Security',
     image: '/images/services/network-security-solutions.jpg',
     alt: 'A network security professional works at a multi-monitor workstation',
-    items: ['Encryption Control Services', 'Data Protection', 'Encryption Control Services'],
+    items: ['Encryption Control Services', 'Data Protection', 'Firewall and Access Control'],
   },
   {
     title: 'CCTV Support',
     image: '/images/services/cctv-camera-installation-support.jpg',
     alt: 'Cybernaut technician wearing gloves while installing a white dome CCTV camera',
-    items: [
-      'CCTV Installation',
-      'CCTV Maintenance Services',
-      'Scalable CCTV Solutions',
-      'Customized Plans',
-    ],
+    items: ['CCTV Installation', 'CCTV Maintenance Services', 'Customized Plans'],
   },
   {
     title: 'Phone Systems',
     image: '/images/services/business-voip-phone-system.jpg',
     alt: 'Cybernaut technician configuring a business VoIP phone system',
-    items: ['PABX Setup and Support', 'Cloud-Based Phone Solutions', 'Call Management'],
+    items: ['PABX Setup & Support', 'Cloud-Based Phone Solutions', 'Call Management'],
   },
   {
     title: 'Wi-Fi Solutions',
     image: '/images/services/wifi-solutions-wireless-network-installation.jpg',
     alt: 'IT technician configuring a white wireless access point while holding a laptop',
-    items: [
-      'Wifi Installation & Setup',
-      'Router Configuration',
-      'Network Optimization',
-      'Cloud-Based Wifi Solutions',
-    ],
+    items: ['Wifi Installation & Setup', 'Network Optimization', 'Cloud-Based Wifi Solutions'],
   },
   {
     title: 'Printers & Scanners',
     image: '/images/services/office-printer-scanner-setup-support.jpg',
     alt: 'IT specialist setting up a digital tablet controller interface on an office printer scanner machine',
     items: [
-      'Printer & Scanner Setup & Support',
       'Multi-Device Printer Integration',
       'Printer Repairs & Maintenance',
       'Scanner Configuration & Setup',
@@ -75,12 +64,7 @@ const services = [
     title: 'Biometric & Attendance Systems',
     image: '/images/services/biometric-attendance-system-installation.jpg',
     alt: 'Technician installing a wall-mounted digital biometric face recognition time attendance terminal',
-    items: [
-      'Biometric Systems in Dubai',
-      'Fingerprint',
-      'RFID Solutions',
-      'Hybrid Biometric Reader Installation',
-    ],
+    items: ['Biometric Systems in Dubai', 'RFID Solutions', 'Hybrid Biometric Reader Installation'],
   },
 ]
 
@@ -144,8 +128,8 @@ export const ServicesSection = () => {
           </h2>
           <p className="mx-auto max-w-5xl text-base md:text-lg text-white mt-4 md:font-thin md:tracking-wider">
             IT services that you don’t have to second-guess. We provide streamlined and future-ready
-            infrastructure that helps you maintain your strategic-edge in the UAE’s
-            hyper-competitive market.
+            it solution that helps you maintain your strategic-edge in the UAE’s hyper-competitive
+            market.
           </p>
         </div>
 

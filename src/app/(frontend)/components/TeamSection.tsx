@@ -47,7 +47,7 @@ const teamMembers = [
     image: '/images/team/win-hlaing-oo-it-technician.png',
     alt: 'Win Hlaing Oo, IT Technician at Cybernaut',
     paragraph:
-      'Holds a diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over 7 years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
+      'Holds a Diploma in Information Technology and certifications in Advanced A+ and Network Engineering and backed by over 7 years of diverse IT experience specializing in PC Troubleshooting, CCTV and Network system. He is a adept in resolving problems that challenge business operations with a strong commitment to excellence.',
   },
   {
     name: 'MARK VISCA',
@@ -63,7 +63,7 @@ const teamMembers = [
     image: '/images/team/sherick-mark-pantanilla-junior-it-technician.png',
     alt: 'Sherick Mark Pantanilla, Junior IT Technician at Cybernaut',
     paragraph:
-      'Holding a degree in Hotel and Restaurant Management, he has keen attention to detail. With a passion for computer technology, he has developed hands-on knowledge of computer troubleshooting, hardware, software and basic networking, and brings strong customer service and commitment to provide effective technical support.',
+      'Holding a Degree in Hotel and Restaurant Management, he has keen attention to detail. With a passion for computer technology, he has developed hands-on knowledge of computer troubleshooting, hardware, software and basic networking, and brings strong customer service and commitment to provide effective technical support.',
   },
 ]
 
