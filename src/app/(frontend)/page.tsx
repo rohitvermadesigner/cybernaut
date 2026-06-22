@@ -100,7 +100,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <TeamSection />
-      {/* <BlogSection /> */}
+      <BlogSection />
       <VideoSection />
     </>
   )
