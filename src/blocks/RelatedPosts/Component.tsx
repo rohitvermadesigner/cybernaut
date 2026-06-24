@@ -6,6 +6,7 @@ import type { Post } from '@/payload-types'
 
 import { Card } from '../../components/Card'
 import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
+import Link from 'next/link'
 
 export type RelatedPostsProps = {
   className?: string
@@ -27,6 +28,16 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
           return <Card key={index} doc={doc} relationTo="posts" showCategories />
         })}
       </div>
+
+      {/* <div className="text-center">
+        <Link
+          href="tel:800 292376288"
+          target="_blank"
+          className="triangle-cta mt-5 inline-block px-6 py-3 text-base font-medium text-white hover:text-black"
+        >
+          <span>More Blog</span>
+        </Link>
+      </div> */}
     </div>
   )
 }

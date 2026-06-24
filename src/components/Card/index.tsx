@@ -36,7 +36,7 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'overflow-hidden hover:cursor-pointer text-white border-b-[1px] border-[#4B6172] pb-4',
+        'overflow-hidden hover:cursor-pointer lg:text-white border-b-[1px] border-[#ccc] lg:border-[#4B6172] pb-4',
         className,
       )}
       ref={card.ref}
@@ -87,7 +87,10 @@ export const Card: React.FC<{
             </div>
           )}
           {publishedAt && (
-            <time className="mt-1 block text-xs text-white/70" dateTime={publishedAt}>
+            <time
+              className="mt-1 block text-xs text-black/70 lg:text-white/70"
+              dateTime={publishedAt}
+            >
               {new Date(publishedAt).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',

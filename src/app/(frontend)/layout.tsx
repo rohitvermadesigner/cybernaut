@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: 'https://cybernaut.excellenceauditing.net/images/hero/video-bg.png',
+        url: 'https://www.cybernautme.com/images/hero/video-bg.png',
         width: 1200,
         height: 630,
         alt: 'Cybernaut corporate IT branding banner featuring offered services',
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
       'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
     images: [
       {
-        url: 'https://cybernaut.excellenceauditing.net/images/hero/video-bg.png',
+        url: 'https://www.cybernautme.com/images/hero/video-bg.png',
         alt: 'Cybernaut corporate IT branding banner featuring offered services',
       },
     ],

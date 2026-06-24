@@ -56,7 +56,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />
 
   return (
-    <article className="pt-16 pb-16 bg-white text-black">
+    <article className="md:pt-16 md:pb-16 bg-white text-black">
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -67,42 +67,47 @@ export default async function Post({ params: paramsPromise }: Args) {
       {/* <PostHero post={post} /> */}
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-[1.4fr_0.6fr] gap-8">
+        <div className="grid md:grid-cols-[1.4fr_0.6fr] gap-8">
           <div>
             {heroImage && typeof heroImage !== 'string' && (
-              <Media priority imgClassName="w-full rounded-xl mb-4" resource={heroImage} />
+              <Media priority imgClassName="w-full md:rounded-xl mb-4" resource={heroImage} />
             )}
-            {publishedAt && (
-              <div className="flex flex-col gap-1 mb-4 text-[#666]">
-                <time dateTime={publishedAt}>
-                  {new Date(publishedAt).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-              </div>
-            )}
-            <h1 className="font-roboto-condensed font-extrabold uppercase tracking-normal text-[1.5rem] lg:text-5xl mb-5">
-              {title}
-            </h1>
+            <div className="px-4 lg:px-0">
+              {publishedAt && (
+                <div className="flex flex-col gap-1 mb-4 text-[#666]">
+                  <time dateTime={publishedAt}>
+                    {new Date(publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </div>
+              )}
 
-            <div>
-              <RichText
-                className="mb-5 text-black text-justify richtext-custom"
-                data={post.content}
-                enableGutter={false}
-              />
+              <h1 className="font-roboto-condensed font-extrabold uppercase tracking-normal text-[1.5rem] lg:text-5xl mb-5">
+                {title}
+              </h1>
+
+              <div>
+                <RichText
+                  className="mb-5 text-black/70 text-justify richtext-custom"
+                  data={post.content}
+                  enableGutter={false}
+                />
+              </div>
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-xl">Latest Blogs</h3>
-            {post.relatedPosts && post.relatedPosts.length > 0 && (
-              <RelatedPosts
-                className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr] bg-[url('/images/bg-m.png')] p-4 rounded-lg"
-                docs={post.relatedPosts.filter((post) => typeof post === 'object')}
-              />
-            )}
+            <div className="px-4 lg:px-0">
+              <h3 className="mb-4 text-xl">Latest Blogs</h3>
+              {post.relatedPosts && post.relatedPosts.length > 0 && (
+                <RelatedPosts
+                  className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr] lg:bg-[url('/images/bg-m.png')] lg:p-4 rounded-lg"
+                  docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

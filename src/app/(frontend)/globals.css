@@ -514,7 +514,7 @@ body {
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
   --navyBlue: #251f5d;
-  --skyBlue: #74FFCF;
+  --skyBlue: #74ffcf;
 }
 
 [data-theme='dark'] {
@@ -555,7 +555,7 @@ body {
   --error: oklch(45% 0.1 25deg);
   --textPrimary: #373737;
   --navyBlue: #251f5d;
-  --skyBlue: #74FFCF;
+  --skyBlue: #74ffcf;
 }
 
 @theme inline {
@@ -639,10 +639,20 @@ html[data-theme='light'] {
   margin: 0px;
   margin-bottom: 10px;
 }
-.richtext-custom h2{
-  font-size: 2rem;
+.richtext-custom h2 {
+  font-size: 2.5rem;
 }
 
-.richtext-custom p{
- @apply text-base md:text-lg md:font-thin md:tracking-wider;
+.richtext-custom p strong{
+  color:#000;
+}
+.richtext-custom p {
+  @apply text-base md:text-lg;
+}
+
+@media (max-width: 768px) {
+  .richtext-custom h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
 }

@@ -25,7 +25,7 @@ const jsonLd = {
     '@id': 'https://www.cybernautme.com',
     name: 'Cybernaut',
     url: 'https://www.cybernautme.com',
-    logo: 'https://cybernaut.excellenceauditing.net/images/logo.svg',
+    logo: 'https://www.cybernautme.com/images/logo.svg',
     telephone: '+97145725191',
     address: {
       '@type': 'PostalAddress',
@@ -55,7 +55,7 @@ const jsonLd = {
     '@type': 'LocalBusiness',
     '@id': 'https://www.cybernautme.com',
     name: 'Cybernaut',
-    image: 'https://cybernaut.excellenceauditing.net/images/logo.svg',
+    image: 'https://www.cybernautme.com/images/logo.svg',
     url: 'https://www.cybernautme.com',
     telephone: '800 292376288',
     priceRange: 'AED',
@@ -100,7 +100,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <TeamSection />
-      {/* <BlogSection /> */}
+      <BlogSection />
       <VideoSection />
     </>
   )
