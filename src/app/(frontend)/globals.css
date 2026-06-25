@@ -653,7 +653,6 @@ html[data-theme='light'] {
 
 @media (max-width: 768px) {
   .richtext-custom h2 {
-    font-size: 1.5rem;
-    text-align: left;
+    font-size: 1.3rem !important;
   }
 }
