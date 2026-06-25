@@ -640,7 +640,8 @@ html[data-theme='light'] {
   margin-bottom: 10px;
 }
 .richtext-custom h2 {
-  font-size: 2.5rem;
+  font-size: 2rem !important;
+  text-align: left !important;
 }
 
 .richtext-custom p strong{

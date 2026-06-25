@@ -56,7 +56,7 @@ export default async function Post({ params: paramsPromise }: Args) {
   if (!post) return <PayloadRedirects url={url} />
 
   return (
-    <article className="md:pt-16 md:pb-16 bg-white text-black">
+    <article className="md:pt-8 md:pb-8 bg-white text-black">
       <PageClient />
 
       {/* Allows redirects for valid pages too */}
@@ -85,7 +85,7 @@ export default async function Post({ params: paramsPromise }: Args) {
                 </div>
               )}
 
-              <h1 className="font-roboto-condensed font-extrabold uppercase tracking-normal text-[1.5rem] lg:text-5xl mb-5">
+              <h1 className="font-roboto-condensed font-extrabold uppercase tracking-normal text-[1.5rem] lg:text-5xl mb-5 leading-tight">
                 {title}
               </h1>
 
@@ -99,7 +99,7 @@ export default async function Post({ params: paramsPromise }: Args) {
             </div>
           </div>
           <div>
-            <div className="px-4 lg:px-0">
+            <div className="px-4 lg:px-0 sticky top-30">
               <h3 className="mb-4 text-xl">Latest Blogs</h3>
               {post.relatedPosts && post.relatedPosts.length > 0 && (
                 <RelatedPosts
