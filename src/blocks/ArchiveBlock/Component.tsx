@@ -30,15 +30,24 @@ export const ArchiveBlock: React.FC<
       collection: 'posts',
       depth: 1,
       limit,
-      ...(flattenedCategories && flattenedCategories.length > 0
-        ? {
-            where: {
-              categories: {
-                in: flattenedCategories,
-              },
+      where: {
+        and: [
+          {
+            _status: {
+              equals: 'published',
             },
-          }
-        : {}),
+          },
+          ...(flattenedCategories && flattenedCategories.length > 0
+            ? [
+                {
+                  categories: {
+                    in: flattenedCategories,
+                  },
+                },
+              ]
+            : []),
+        ],
+      },
     })
 
     posts = fetchedPosts.docs
@@ -48,7 +57,7 @@ export const ArchiveBlock: React.FC<
         if (typeof post.value === 'object') return post.value
       }) as Post[]
 
-      posts = filteredSelectedPosts
+      posts = filteredSelectedPosts.filter((post) => post._status === 'published')
     }
   }
 

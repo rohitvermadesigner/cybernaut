@@ -24,6 +24,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
       <div className="grid gap-4">
         {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
+          if (doc._status !== 'published') return null
 
           return <Card key={index} doc={doc} relationTo="posts" showCategories />
         })}
@@ -31,7 +32,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
 
       {/* <div className="text-center">
         <Link
-          href="tel:800 292376288"
+          href="#"
           target="_blank"
           className="triangle-cta mt-5 inline-block px-6 py-3 text-base font-medium text-white hover:text-black"
         >

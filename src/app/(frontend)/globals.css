@@ -246,6 +246,27 @@ body {
     transform: translateY(0);
     transition-delay: 700ms;
   }
+
+  .page-loader {
+    animation: page-loader-enter 600ms ease-out both;
+  }
+
+  .page-loader__ring {
+    animation: page-loader-spin 1200ms linear infinite;
+    border-top-color: var(--skyBlue);
+    border-right-color: transparent;
+  }
+
+  .page-loader__ring--delay {
+    animation-duration: 1700ms;
+    animation-direction: reverse;
+    border-top-color: #fff;
+    border-left-color: transparent;
+  }
+
+  .page-loader__bar > span {
+    animation: page-loader-bar 1100ms ease-in-out infinite;
+  }
 }
 
 @keyframes collage-card-enter {
@@ -344,6 +365,38 @@ body {
   }
 }
 
+@keyframes page-loader-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes page-loader-bar {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  50% {
+    transform: translateX(60%);
+  }
+
+  100% {
+    transform: translateX(230%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .collage-card,
   .collage-card__inner,
@@ -355,7 +408,10 @@ body {
   .about-values-copy,
   .about-slide-two-background,
   .about-value-card,
-  .about-value-card--active {
+  .about-value-card--active,
+  .page-loader,
+  .page-loader__ring,
+  .page-loader__bar > span {
     animation: none;
   }
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { formatDateTime } from 'src/utilities/formatDateTime'
 import { RelatedPosts } from '@/blocks/RelatedPosts/Component'
+import { getLatestPosts } from '@/lib/getLatestBlogs'
 import { PayloadRedirects } from '@/components/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
@@ -25,6 +26,11 @@ export async function generateStaticParams() {
     limit: 1000,
     overrideAccess: false,
     pagination: false,
+    where: {
+      _status: {
+        equals: 'published',
+      },
+    },
     select: {
       slug: true,
     },
@@ -51,9 +57,10 @@ export default async function Post({ params: paramsPromise }: Args) {
   const url = '/posts/' + decodedSlug
   const post = await queryPostBySlug({ slug: decodedSlug })
 
-  const { categories, heroImage, populatedAuthors, publishedAt, title } = post
-
   if (!post) return <PayloadRedirects url={url} />
+
+  const { heroImage, publishedAt, title } = post
+  const latestPosts = await getLatestPosts({ excludeId: post.id, limit: 3 })
 
   return (
     <article className="md:pt-8 md:pb-8 bg-white text-black">
@@ -101,10 +108,10 @@ export default async function Post({ params: paramsPromise }: Args) {
           <div>
             <div className="px-4 lg:px-0 sticky top-30">
               <h3 className="mb-4 text-xl">Latest Blogs</h3>
-              {post.relatedPosts && post.relatedPosts.length > 0 && (
+              {latestPosts.length > 0 && (
                 <RelatedPosts
                   className="lg:grid lg:grid-cols-subgrid col-start-1 col-span-3 grid-rows-[2fr] lg:bg-[url('/images/bg-m.png')] lg:p-4 rounded-lg"
-                  docs={post.relatedPosts.filter((post) => typeof post === 'object')}
+                  docs={latestPosts}
                 />
               )}
             </div>
@@ -136,9 +143,22 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
     overrideAccess: draft,
     pagination: false,
     where: {
-      slug: {
-        equals: slug,
-      },
+      and: [
+        {
+          slug: {
+            equals: slug,
+          },
+        },
+        ...(draft
+          ? []
+          : [
+              {
+                _status: {
+                  equals: 'published',
+                },
+              },
+            ]),
+      ],
     },
   })
 

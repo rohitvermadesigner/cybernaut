@@ -838,6 +838,7 @@ export interface Search {
     relationTo: 'posts';
     value: string | Post;
   };
+  status?: string | null;
   slug?: string | null;
   meta?: {
     title?: string | null;
@@ -1529,6 +1530,7 @@ export interface SearchSelect<T extends boolean = true> {
   title?: T;
   priority?: T;
   doc?: T;
+  status?: T;
   slug?: T;
   meta?:
     | T
