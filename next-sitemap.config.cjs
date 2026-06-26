@@ -1,7 +1,12 @@
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SERVER_URL ||
-  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-  'https://example.com'
+const normalizeSiteUrl = (url) => {
+  if (!url) return 'https://www.cybernautme.com'
+
+  return url.startsWith('http') ? url : `https://${url}`
+}
+
+const SITE_URL = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL,
+)
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
