@@ -81,10 +81,6 @@ export const metadata: Metadata = {
   description:
     'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
 
-  alternates: {
-    canonical: 'https://www.cybernautme.com/',
-  },
-
   openGraph: {
     type: 'website',
     url: 'https://www.cybernautme.com',

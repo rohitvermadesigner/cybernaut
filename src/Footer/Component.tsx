@@ -93,7 +93,7 @@ export async function Footer() {
                     aria-label={label}
                     rel={rel}
                     target="_blank"
-                    className="grid h-10 w-10 place-items-center rounded-[12px] bg-[var(--skyBlue)] text-black shadow-[0_10px_24px_rgba(39,183,246,0.2)] transition hover:bg-white hover:text-black duration-300"
+                    className="grid h-10 w-10 place-items-center rounded-[12px] bg-[var(--skyBlue)] text-black shadow-[0_10px_24px_rgba(39,183,246,0.2)] transition hover:bg-[#283439] hover:text-[var(--skyBlue)] duration-300"
                   >
                     <Icon className="h-4 w-4" aria-hidden="true" />
                   </Link>
@@ -201,7 +201,7 @@ function FooterHeading({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-3">
       <span className="h-5 w-[3px] rounded-full bg-[var(--skyBlue)]" />
-      <h2 className="font-roboto-condensed text-lg font-bold text-white uppercase">{title}</h2>
+      <div className="font-roboto-condensed text-lg font-bold text-white uppercase">{title}</div>
     </div>
   )
 }

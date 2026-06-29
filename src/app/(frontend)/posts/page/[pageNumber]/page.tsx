@@ -8,6 +8,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
+import { getCanonicalURL } from '@/utilities/getURL'
 
 export const revalidate = 600
 
@@ -70,6 +71,9 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
+    alternates: {
+      canonical: getCanonicalURL(`/posts/page/${pageNumber}`),
+    },
     title: `Cybernaut - Blog Posts Page ${pageNumber || ''}`,
   }
 }

@@ -7,6 +7,7 @@ import { HeroSection } from './components/HeroSection'
 import { ServicesSection } from './components/ServicesSection'
 import { TeamSection } from './components/TeamSection'
 import { VideoSection } from './components/VideoSection'
+import { getCanonicalURL } from '@/utilities/getURL'
 
 // export default PageTemplate
 
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
   title: 'IT Support Company in Dubai | Services & Solutions - Cybernaut',
   description:
     'Cybernaut is a leading IT company in Dubai providing customized IT support and services. Boost your business productivity and continuity with our solutions.',
+  alternates: {
+    canonical: getCanonicalURL('/'),
+  },
 }
 
 const jsonLd = {

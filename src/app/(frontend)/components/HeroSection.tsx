@@ -104,9 +104,9 @@ const collageBoxes = [
 
 const TextBox = ({ centered = false }: { centered?: boolean }) => (
   <div className={centered ? 'mx-auto max-w-5xl text-center' : 'max-w-2xl'}>
-    <h1 className="text-balance font-extrabold uppercase leading-tight tracking-normal text-white font-roboto-condensed text-3xl lg:text-4xl xl:text-5xl">
+    <p className="text-balance font-extrabold uppercase leading-tight tracking-normal text-white font-roboto-condensed text-3xl lg:text-4xl xl:text-5xl">
       {heroCopy.title}
-    </h1>
+    </p>
     <p className="mt-6 text-pretty text-lg leading-8 text-white/82 sm:text-xl lg:text-2xl">
       {heroCopy.description}
     </p>
@@ -151,12 +151,11 @@ const MobileHero = () => (
 
     <div className="relative z-10 flex min-h-[inherit] items-end justify-center px-4 pb-24 pt-20 text-center">
       <div className="mx-auto md:max-w-[96%] lg:max-w-[420px]">
-        <h1 className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
-          Launch your mission with advanced IT services
-        </h1>
+        <p className="font-roboto-condensed text-3xl font-extrabold uppercase leading-tight tracking-normal text-white">
+          {heroCopy.title}
+        </p>
         <p className="mx-auto mt-3 md:max-w-[96%] lg:max-w-[420px] text-[1.28rem] leading-8 text-white/88">
-          IT services and support in Dubai that keeps your business shielded from worrying about
-          digital downtime.
+          {heroCopy.description}
         </p>
         {/* <Link
           href="about"
@@ -274,6 +273,7 @@ export const HeroSection = () => {
 
   return (
     <>
+      <h1 className="sr-only">{heroCopy.title}</h1>
       <MobileHero />
       <section
         data-lenis-prevent

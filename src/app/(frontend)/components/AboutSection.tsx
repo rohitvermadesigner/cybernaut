@@ -43,7 +43,7 @@ const MobileAboutSection = () => (
       <div className="absolute opacity-15 absolute z-[5] left-0 right-0 mx-auto bottom-[150px] w-[150px] h-[211px]">
         <Image
           src="/images/about/client-centric-it-support-services-icon.png"
-          alt=""
+          alt="Customer-focused business support symbol representing client-centric service delivery"
           fill
           sizes="260px"
           className="object-contain object-bottom"

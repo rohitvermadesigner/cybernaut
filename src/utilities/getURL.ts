@@ -5,7 +5,9 @@ const DEFAULT_SITE_URL = 'https://www.cybernautme.com'
 const normalizeSiteUrl = (url?: string) => {
   if (!url) return DEFAULT_SITE_URL
 
-  return url.startsWith('http') ? url : `https://${url}`
+  const siteUrl = url.startsWith('http') ? url : `https://${url}`
+
+  return siteUrl.replace(/\/+$/, '')
 }
 
 export const getServerSideURL = () => {
@@ -41,4 +43,11 @@ export const getClientSideURL = () => {
   }
 
   return process.env.NEXT_PUBLIC_SERVER_URL || ''
+}
+
+export const getCanonicalURL = (path = '/') => {
+  const siteUrl = getServerSideURL()
+  const canonicalPath = path.startsWith('/') ? path : `/${path}`
+
+  return `${siteUrl}${canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, '')}`
 }
