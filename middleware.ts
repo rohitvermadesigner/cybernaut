@@ -32,9 +32,10 @@ const getReferenceURL = (redirect: RedirectDocument): string | null => {
     return null
   }
 
-  return `${reference.relationTo !== 'pages' ? `/${reference.relationTo}` : ''}/${
-    reference.value.slug
-  }`
+  const prefix = reference.relationTo !== 'pages' ? `/${reference.relationTo}` : ''
+  const slug = reference.value.slug === '/' ? '' : reference.value.slug
+
+  return `${prefix}/${slug}`.replace(/\/{2,}/g, '/')
 }
 
 const getRedirectURL = (redirect: RedirectDocument): string | null => {
@@ -44,7 +45,7 @@ const getRedirectURL = (redirect: RedirectDocument): string | null => {
 export async function middleware(request: NextRequest) {
   try {
     const lookupPaths = getRedirectLookupPaths(request.nextUrl.pathname)
-    const apiURL = new URL('/api/redirects', request.url)
+    const apiURL = new URL('/api/redirects', `http://127.0.0.1:${process.env.PORT || 3000}`)
 
     if (lookupPaths.length === 1) {
       apiURL.searchParams.set('where[from][equals]', lookupPaths[0])
@@ -75,7 +76,9 @@ export async function middleware(request: NextRequest) {
       return NextResponse.next()
     }
 
-    const destination = new URL(redirectURL, request.url)
+    const host = request.headers.get('x-forwarded-host') ?? request.headers.get('host')
+    const proto = request.headers.get('x-forwarded-proto') ?? 'https'
+    const destination = new URL(redirectURL, `${proto}://${host}`)
 
     if (destination.pathname !== '/') {
       destination.pathname = destination.pathname.replace(/\/+$/, '')
