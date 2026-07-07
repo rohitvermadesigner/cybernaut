@@ -49,6 +49,7 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   redirects,
+  skipTrailingSlashRedirect: true,
   turbopack: {
     root: path.resolve(dirname),
   },

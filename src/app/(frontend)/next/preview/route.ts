@@ -2,7 +2,6 @@ import type { PayloadRequest } from 'payload'
 import { getPayload } from 'payload'
 
 import { draftMode } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { NextRequest } from 'next/server'
 
 import configPromise from '@payload-config'
@@ -55,5 +54,5 @@ export async function GET(req: NextRequest): Promise<Response> {
 
   draft.enable()
 
-  redirect(path)
+  return Response.redirect(new URL(path, req.url), 302)
 }

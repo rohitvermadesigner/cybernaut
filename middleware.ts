@@ -15,6 +15,16 @@ type RedirectsResponse = {
   docs?: RedirectDocument[]
 }
 
+const getRedirectLookupPaths = (pathname: string): string[] => {
+  if (pathname === '/') {
+    return [pathname]
+  }
+
+  const withoutTrailingSlash = pathname.replace(/\/+$/, '')
+
+  return Array.from(new Set([pathname, withoutTrailingSlash]))
+}
+
 const getReferenceURL = (redirect: RedirectDocument): string | null => {
   const reference = redirect.to?.reference
 
@@ -32,30 +42,56 @@ const getRedirectURL = (redirect: RedirectDocument): string | null => {
 }
 
 export async function middleware(request: NextRequest) {
-  const apiURL = new URL('/api/redirects', request.url)
-  apiURL.searchParams.set('where[from][equals]', request.nextUrl.pathname)
-  apiURL.searchParams.set('depth', '1')
-  apiURL.searchParams.set('limit', '1')
+  try {
+    const lookupPaths = getRedirectLookupPaths(request.nextUrl.pathname)
+    const apiURL = new URL('/api/redirects', request.url)
 
-  const response = await fetch(apiURL, {
-    headers: {
-      accept: 'application/json',
-    },
-  })
+    if (lookupPaths.length === 1) {
+      apiURL.searchParams.set('where[from][equals]', lookupPaths[0])
+    } else {
+      lookupPaths.forEach((pathname, index) => {
+        apiURL.searchParams.set(`where[or][${index}][from][equals]`, pathname)
+      })
+    }
 
-  if (!response.ok) {
+    apiURL.searchParams.set('depth', '1')
+    apiURL.searchParams.set('limit', '1')
+
+    const response = await fetch(apiURL, {
+      headers: {
+        accept: 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      return NextResponse.next()
+    }
+
+    const data = (await response.json()) as RedirectsResponse
+    const redirect = data.docs?.[0]
+    const redirectURL = redirect ? getRedirectURL(redirect) : null
+
+    if (!redirectURL) {
+      return NextResponse.next()
+    }
+
+    const destination = new URL(redirectURL, request.url)
+
+    if (destination.pathname !== '/') {
+      destination.pathname = destination.pathname.replace(/\/+$/, '')
+    }
+
+    if (
+      destination.pathname === request.nextUrl.pathname &&
+      destination.search === request.nextUrl.search
+    ) {
+      return NextResponse.next()
+    }
+
+    return NextResponse.redirect(destination, 302)
+  } catch {
     return NextResponse.next()
   }
-
-  const data = (await response.json()) as RedirectsResponse
-  const redirect = data.docs?.[0]
-  const redirectURL = redirect ? getRedirectURL(redirect) : null
-
-  if (!redirectURL) {
-    return NextResponse.next()
-  }
-
-  return NextResponse.redirect(new URL(redirectURL, request.url), 302)
 }
 
 export const config = {
