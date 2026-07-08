@@ -70,7 +70,7 @@ const teamMembers = [
 type TeamMember = (typeof teamMembers)[number]
 
 const TeamMemberCard = ({ member }: { member: TeamMember }) => (
-  <article className="grid min-h-[525px] md:min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white md:grid-cols-[1.2fr_0.8fr]">
+  <article className="grid min-h-[550px] md:min-h-[325px] overflow-hidden rounded-4xl border-[1px] border-[#2e404d] bg-[linear-gradient(90deg,rgba(19,51,66,0.7),rgba(12,21,26,0.7))] text-white md:grid-cols-[1.2fr_0.8fr]">
     <div className="flex flex-col justify-start p-6 sm:p-8">
       <h3 className="font-roboto-condensed text-2xl md:text-3xl font-bold uppercase leading-tight">
         {member.name}
@@ -92,7 +92,7 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => (
         height={0}
         width={48}
         // className="object-cover"
-        className="w-56 md:w-80 h-56 md:h-80 absolute bottom-0 left-0 right-0 mr-auto ml-auto"
+        className="w-56 md:w-80 h-56 md:h-76 absolute bottom-0 left-0 right-0 mr-auto ml-auto"
         sizes="(max-width: 640px) 40vw, 220px"
       />
     </div>
