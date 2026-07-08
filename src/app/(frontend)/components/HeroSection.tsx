@@ -21,11 +21,11 @@ const heroCopy2 = {
 const videoAssets = {
   splitVideo: {
     mp4: '/images/hero/hero.mp4',
-    poster: '/images/hero/video-bg.png',
+    poster: '/images/hero/video-bg.webp',
   },
   backgroundVideo: {
     mp4: '/images/hero/hero.mp4',
-    poster: '/images/hero/video-bg.png',
+    poster: '/images/hero/video-bg.webp',
   },
 }
 
@@ -138,7 +138,15 @@ const MobileHero = () => (
     style={{ minHeight: 'calc(100svh - 72px)' }}
   >
     <div className="absolute inset-0">
-      <VideoPanel mode="backgroundVideo" />
+      <Image
+        src="/images/hero/video-bg.webp"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover"
+      />
     </div>
     <div className="absolute inset-0 bg-black/28" />
     <div
@@ -185,7 +193,7 @@ const VideoPanel = ({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
       poster={asset.poster}
     >
       <source src={asset.mp4} type="video/mp4" />

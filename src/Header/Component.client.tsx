@@ -6,8 +6,7 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 import { HeaderNav } from './Nav'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
-import { FaPhoneAlt } from 'react-icons/fa'
+import { Menu, Phone, X } from 'lucide-react'
 
 interface HeaderClientProps {
   data: Header
@@ -53,7 +52,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                   className="triangle-cta text-white py-2 px-4 block text-sm"
                 >
                   <span className="flex items-center gap-2 uppercase">
-                    <FaPhoneAlt className="w-5" /> 800 Cybernaut
+                    <Phone className="w-5" /> 800 Cybernaut
                   </span>
                 </Link>
               </li>

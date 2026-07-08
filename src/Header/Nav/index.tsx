@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import type { Header as HeaderType } from '@/payload-types'
-import { FaPhoneAlt } from 'react-icons/fa'
+import { Phone } from 'lucide-react'
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 
@@ -54,7 +54,7 @@ export const HeaderNav: React.FC<{
             className="triangle-cta text-white hover:text-black py-3 px-6 block"
           >
             <span className="flex items-center gap-2 uppercase md:text-sm lg:text-base">
-              <FaPhoneAlt className="w-5" /> 800 Cybernaut
+              <Phone className="w-5" /> 800 Cybernaut
             </span>
           </Link>
         </li>

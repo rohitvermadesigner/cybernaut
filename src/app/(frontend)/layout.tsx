@@ -51,7 +51,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
       </head>
-      <body className="bg-[url('/images/bg-m.png')] md:bg-[url('/images/bg.png')] bg-top bg-center bg-cover bg-no-repeat bg-fixed">
+      <body className="bg-[url('/images/bg-m.webp')] md:bg-[url('/images/bg.webp')] bg-top bg-center bg-cover bg-no-repeat bg-fixed">
         <GoogleTagManager gtmId="GTM-TBCXRKFK" />
         <InitTheme />
         <Providers>
