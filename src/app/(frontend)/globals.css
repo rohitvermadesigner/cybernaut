@@ -700,15 +700,215 @@ html[data-theme='light'] {
   text-align: left !important;
 }
 
-.richtext-custom p strong{
-  color:#000;
+.richtext-custom p strong {
+  color: #000;
 }
 .richtext-custom p {
   @apply text-base md:text-lg;
 }
 
+.service-section-1 .container {
+  align-items: center;
+  justify-content: center;
+}
+.service-section-1 .container h2,
+.service-rounded-dark-box h2,
+.service-title-section .grid h2,
+.service-cta-section h2 {
+  color: #242424;
+  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.service-cta-section h2 {
+  padding-right: 100px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.service-title-section .grid h2 {
+  padding-right: 100px;
+}
+.service-rounded-dark-box h2 {
+  color: #74ffcf;
+}
+.service-section-1 .container p {
+  color: #242424;
+}
+.service-section-1 .container img {
+  border: 0px;
+}
+
+.service-rounded-dark-box .container {
+  padding: 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.service-rounded-dark-box .grid {
+  background: #0b1a22;
+  border-radius: 25px;
+  padding: 20px;
+  align-items: center;
+}
+
+.service-rounded-dark-box p {
+  padding-right: 50px;
+  color: #fff !important;
+}
+
+.service-rounded-dark-box ul li {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #fff !important;
+}
+.service-rounded-dark-box ul li::marker {
+  color: #fff;
+  font-size: 24px;
+}
+
+.service-title-section {
+  padding: 30px 0px;
+}
+.service-title-section .grid {
+  align-items: center;
+  color: #242424;
+}
+.service-boxes-section picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-boxes-section picture img {
+  border: 0px !important;
+  height: 180px;
+  width: auto;
+}
+.service-boxes-section .grid {
+  gap: 0px;
+}
+.service-boxes-section .grid h3 {
+  color: #242424;
+  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.service-boxes-section .grid p:first-child {
+  margin-bottom: 0px;
+  font-size: 20px;
+  color: #242424;
+  font-weight: 100;
+}
+.service-boxes-section .grid > div {
+  padding: 32px;
+  padding-bottom: 62px;
+  position: relative;
+}
+.service-boxes-section .grid > div::after {
+  content: '';
+  width: 100px;
+  height: 1px;
+  background: #000;
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  transition: width 0.45s;
+}
+.service-boxes-section .grid > div:hover::after {
+  width: 80%;
+}
+.service-boxes-section .grid > div:last-child::after {
+  width: 0;
+  height: 0;
+}
+.service-boxes-section .grid > div:nth-child(1) {
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-left: 0;
+}
+.service-boxes-section .grid > div:nth-child(2) {
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-left: 0;
+}
+.service-boxes-section .grid > div:nth-child(3) {
+  border-bottom: 1px solid #ccc;
+}
+.service-boxes-section .grid > div:nth-child(4) {
+  border-right: 1px solid #ccc;
+}
+.service-boxes-section .grid > div:nth-child(5) {
+  border-right: 1px solid #ccc;
+}
+
+.service-cta-section {
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/images/service-page/cctv-cta-section-bg.webp') top center no-repeat fixed;
+  background-size: cover;
+  color: #fff;
+  padding: 100px 0px;
+}
+
+.service-cta-section h3 {
+  color: var(--skyBlue);
+  font-weight: bold;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.service-cta-section p {
+  padding: 0px 220px;
+}
+
+picture {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 @media (max-width: 768px) {
   .richtext-custom h2 {
     font-size: 1.3rem !important;
+  }
+  .service-cta-section h2 {
+    padding-right: 0px;
+  }
+  .service-cta-section p {
+    padding: 0px 0px;
+  }
+  .service-boxes-section .grid > div:nth-child(1),
+  .service-boxes-section .grid > div:nth-child(2),
+  .service-boxes-section .grid > div:nth-child(3),
+  .service-boxes-section .grid > div:nth-child(4),
+  .service-boxes-section .grid > div:nth-child(5) {
+    border: 0px !important;
+    border-bottom: 1px solid #ccc !important;
+  }
+  .service-section-1 .container h2,
+  .service-rounded-dark-box h2,
+  .service-title-section .grid h2,
+  .service-cta-section h2 {
+    font-size: 1.5rem;
+  }
+  .service-cta-section{
+    padding: 50px 0px;
+  }
+  .service-title-section .grid h2{
+    padding: 0px;
+  }
+  .service-section-1 .container img{
+    width: 50%;
+    margin: auto;
+  }
+  .service-rounded-dark-box p{
+    padding: 0px;
   }
 }

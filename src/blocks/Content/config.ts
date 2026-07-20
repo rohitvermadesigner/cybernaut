@@ -28,6 +28,14 @@ const columnFields: Field[] = [
         value: 'twoThirds',
       },
       {
+        label: 'Seven Twelfths',
+        value: 'sevenTwelfths',
+      },
+      {
+        label: 'Five Twelfths',
+        value: 'fiveTwelfths',
+      },
+      {
         label: 'Full',
         value: 'full',
       },
@@ -67,6 +75,41 @@ export const Content: Block = {
   slug: 'content',
   interfaceName: 'ContentBlock',
   fields: [
+    {
+      name: 'fullWidthSection',
+      type: 'checkbox',
+      defaultValue: false,
+      label: 'Full width section',
+    },
+    {
+      name: 'backgroundColor',
+      type: 'select',
+      defaultValue: 'transparent',
+      label: 'Background color',
+      options: [
+        {
+          label: 'Transparent',
+          value: 'transparent',
+        },
+        {
+          label: 'White',
+          value: 'white',
+        },
+        {
+          label: 'Dark',
+          value: 'dark',
+        },
+        {
+          label: 'Teal',
+          value: 'teal',
+        },
+      ],
+    },
+    {
+      name: 'customClass',
+      type: 'text',
+      label: 'Custom class',
+    },
     {
       name: 'columns',
       type: 'array',

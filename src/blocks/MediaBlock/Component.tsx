@@ -14,6 +14,7 @@ type Props = MediaBlockProps & {
   className?: string
   enableGutter?: boolean
   imgClassName?: string
+  pictureClassName?: string
   staticImage?: StaticImageData
   disableInnerContainer?: boolean
 }
@@ -25,6 +26,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     enableGutter = true,
     imgClassName,
     media,
+    pictureClassName,
     staticImage,
     disableInnerContainer,
   } = props
@@ -45,6 +47,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
       {(media || staticImage) && (
         <Media
           imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
+          pictureClassName={pictureClassName}
           resource={media}
           src={staticImage}
         />

@@ -10,12 +10,16 @@ import {
   LinkJSXConverter,
   RichText as ConvertRichText,
 } from '@payloadcms/richtext-lexical/react'
+import Link from 'next/link'
 
 import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
 import { HTMLBlock, HTMLBlockProps } from '@/blocks/HTML/Component'
+import { ButtonBlock } from '@/blocks/ButtonBlock/Component'
+import { FAQBlock, type FAQBlockProps } from '@/blocks/FAQBlock/Component'
 
 import type {
   BannerBlock as BannerBlockProps,
+  ButtonBlock as ButtonBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
@@ -26,7 +30,13 @@ import { cn } from '@/utilities/ui'
 type NodeTypes =
   | DefaultNodeTypes
   | SerializedBlockNode<
-      CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps | HTMLBlockProps
+      | CTABlockProps
+      | MediaBlockProps
+      | BannerBlockProps
+      | CodeBlockProps
+      | HTMLBlockProps
+      | ButtonBlockProps
+      | FAQBlockProps
     >
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
@@ -38,38 +48,99 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
 }
 
-const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
-  ...defaultConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
-  blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
-    mediaBlock: ({ node }) => (
-      <MediaBlock
-        className="col-start-1 col-span-3"
-        imgClassName="m-0"
-        {...node.fields}
-        captionClassName="mx-auto max-w-[48rem]"
-        enableGutter={false}
-        disableInnerContainer={true}
-      />
-    ),
-    code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
-    html: ({ node }) => <HTMLBlock className="col-start-2" {...node.fields} />,
-    cta: ({ node }) => <CallToActionBlock {...node.fields} />,
-  },
-})
+const getLinkHref = (node: SerializedLinkNode) => {
+  if (node.fields.linkType === 'internal') {
+    return internalDocToHref({ linkNode: node })
+  }
+
+  return node.fields.url ?? ''
+}
+
+const createJSXConverters =
+  ({
+    mediaBlockImgClassName,
+    mediaBlockPictureClassName,
+  }: {
+    mediaBlockImgClassName?: string
+    mediaBlockPictureClassName?: string
+  }): JSXConvertersFunction<NodeTypes> =>
+  ({ defaultConverters }) => {
+    const linkConverters = LinkJSXConverter({ internalDocToHref })
+
+    return {
+      ...defaultConverters,
+      ...linkConverters,
+      link: ({ node, nodesToJSX }) => {
+        const children = nodesToJSX({ nodes: node.children })
+        const newTabProps = node.fields.newTab
+          ? { rel: 'noopener noreferrer', target: '_blank' }
+          : {}
+
+        if (node.fields.appearance !== 'triangleCta') {
+          return (
+            <a href={getLinkHref(node)} {...newTabProps}>
+              {children}
+            </a>
+          )
+        }
+
+        return (
+          <Link
+            className="triangle-cta text-white hover:text-black py-3 px-6 mt-8 inline-block"
+            style={{ textDecoration: 'none' }}
+            href={getLinkHref(node)}
+            {...newTabProps}
+          >
+            <span className="flex items-center gap-2">{children}</span>
+          </Link>
+        )
+      },
+      blocks: {
+        banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
+        buttonBlock: ({ node }: { node: SerializedBlockNode<ButtonBlockProps> }) => (
+          <ButtonBlock {...node.fields} />
+        ),
+        faqBlock: ({ node }: { node: SerializedBlockNode<FAQBlockProps> }) => (
+          <FAQBlock {...node.fields} />
+        ),
+        mediaBlock: ({ node }) => (
+          <MediaBlock
+            className="col-start-1 col-span-3"
+            imgClassName={cn('m-0', mediaBlockImgClassName)}
+            pictureClassName={mediaBlockPictureClassName}
+            {...node.fields}
+            captionClassName="mx-auto max-w-[48rem]"
+            enableGutter={false}
+            disableInnerContainer={true}
+          />
+        ),
+        code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
+        html: ({ node }) => <HTMLBlock className="col-start-2" {...node.fields} />,
+        cta: ({ node }) => <CallToActionBlock {...node.fields} />,
+      },
+    }
+  }
 
 type Props = {
   data: DefaultTypedEditorState
   enableGutter?: boolean
   enableProse?: boolean
+  mediaBlockImgClassName?: string
+  mediaBlockPictureClassName?: string
 } & React.HTMLAttributes<HTMLDivElement>
 
 export default function RichText(props: Props) {
-  const { className, enableProse = true, enableGutter = true, ...rest } = props
+  const {
+    className,
+    enableProse = true,
+    enableGutter = true,
+    mediaBlockImgClassName,
+    mediaBlockPictureClassName,
+    ...rest
+  } = props
   return (
     <ConvertRichText
-      converters={jsxConverters}
+      converters={createJSXConverters({ mediaBlockImgClassName, mediaBlockPictureClassName })}
       className={cn(
         'payload-richtext',
         {
