@@ -26,6 +26,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     enableGutter = true,
     imgClassName,
     media,
+    mobileMedia,
     pictureClassName,
     staticImage,
     disableInnerContainer,
@@ -44,10 +45,19 @@ export const MediaBlock: React.FC<Props> = (props) => {
         className,
       )}
     >
+      {mobileMedia && (
+        <Media
+          imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
+          pictureClassName={cn('block md:hidden', pictureClassName)}
+          resource={mobileMedia}
+        />
+      )}
       {(media || staticImage) && (
         <Media
           imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
-          pictureClassName={pictureClassName}
+          pictureClassName={
+            mobileMedia ? cn('hidden md:block', pictureClassName) : pictureClassName
+          }
           resource={media}
           src={staticImage}
         />

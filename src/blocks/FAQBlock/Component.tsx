@@ -23,10 +23,7 @@ export const FAQBlock: React.FC<FAQBlockProps> = ({ heading, intro, items }) => 
   }
 
   return (
-    <section
-      aria-label={title}
-      className="not-prose w-full bg-white py-16 text-[#242424] md:py-20"
-    >
+    <section aria-label={title} className="not-prose w-full bg-white py-0 text-[#242424] md:py-0">
       <div className="mx-auto max-w-[760px] px-4 text-center">
         {title ? (
           <h2 className="font-roboto-condensed text-4xl font-bold uppercase leading-tight tracking-normal md:text-5xl">

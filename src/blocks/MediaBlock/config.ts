@@ -6,9 +6,16 @@ export const MediaBlock: Block = {
   fields: [
     {
       name: 'media',
+      label: 'Desktop image',
       type: 'upload',
       relationTo: 'media',
       required: true,
+    },
+    {
+      name: 'mobileMedia',
+      label: 'Mobile image',
+      type: 'upload',
+      relationTo: 'media',
     },
   ],
 }

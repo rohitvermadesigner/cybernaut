@@ -739,6 +739,8 @@ html[data-theme='light'] {
 }
 .service-section-1 .container img {
   border: 0px;
+  width: 225px;
+  margin: auto;
 }
 
 .service-rounded-dark-box .container {
@@ -801,7 +803,7 @@ html[data-theme='light'] {
   margin-bottom: 0px;
   font-size: 20px;
   color: #242424;
-  font-weight: 100;
+  font-weight: 300;
 }
 .service-boxes-section .grid > div {
   padding: 32px;
@@ -820,6 +822,9 @@ html[data-theme='light'] {
 }
 .service-boxes-section .grid > div:hover::after {
   width: 80%;
+}
+.service-boxes-section .grid > div:hover p:first-child {
+  font-weight: 500;
 }
 .service-boxes-section .grid > div:last-child::after {
   width: 0;
@@ -852,7 +857,8 @@ html[data-theme='light'] {
     url('/images/service-page/cctv-cta-section-bg.webp') top center no-repeat fixed;
   background-size: cover;
   color: #fff;
-  padding: 100px 0px;
+  padding-top: 50px;
+  padding-bottom: 25px;
 }
 
 .service-cta-section h3 {
@@ -872,6 +878,36 @@ html[data-theme='light'] {
 picture {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.inner-header .inner-header-content {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--breakpoint-2xl);
+}
+.inner-header .inner-header-content .inner-header-box {
+  background: #141414;
+  border-radius: 25px;
+  padding: 32px;
+  display: inline-grid;
+  width: 650px;
+  color: #fff;
+}
+.inner-header .inner-header-content h2 {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: var(--font-heading);
+  line-height: 3.5rem;
+}
+.inner-header .inner-header-content p {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -898,17 +934,33 @@ picture {
   .service-cta-section h2 {
     font-size: 1.5rem;
   }
-  .service-cta-section{
-    padding: 50px 0px;
-  }
-  .service-title-section .grid h2{
+  .service-title-section .grid h2 {
     padding: 0px;
   }
-  .service-section-1 .container img{
+  .service-section-1 .container img {
     width: 50%;
     margin: auto;
   }
-  .service-rounded-dark-box p{
+  .service-rounded-dark-box p {
     padding: 0px;
+  }
+  .inner-header .inner-header-content {
+    bottom: 10px;
+    max-width: 80%;
+    text-align: center;
+  }
+  .inner-header .inner-header-content .inner-header-box {
+    width: 100%;
+    padding: 20px;
+  }
+  .inner-header .inner-header-content h2 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1rem;
+  }
+  .inner-header .inner-header-content p {
+    font-size: 0.8rem;
+    line-height: 0.9rem;
   }
 }

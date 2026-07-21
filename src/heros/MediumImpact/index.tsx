@@ -5,12 +5,13 @@ import type { Page } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
+import { HeroRichText } from '@/heros/HeroRichText'
 
 export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   return (
-    <div className="">
+    <div className="inner-header relative">
       <div className="container mb-8">
-        {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+        {richText && <HeroRichText contentClassName="mb-6" richText={richText} />}
 
         {Array.isArray(links) && links.length > 0 && (
           <ul className="flex gap-4">
