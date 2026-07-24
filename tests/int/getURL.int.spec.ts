@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest'
-import { getServerSideURL } from '../../src/utilities/getURL'
+import { getCanonicalURL, getServerSideURL } from '../../src/utilities/getURL'
 
 describe('getServerSideURL', () => {
   const originalEnv = { ...process.env }
@@ -23,5 +23,25 @@ describe('getServerSideURL', () => {
     process.env.NODE_ENV = 'production'
 
     expect(getServerSideURL()).toBe('https://www.cybernautme.com')
+  })
+})
+
+describe('getCanonicalURL', () => {
+  const originalEnv = { ...process.env }
+
+  afterEach(() => {
+    process.env = { ...originalEnv }
+  })
+
+  it('adds a trailing slash to all non-root canonical paths', () => {
+    process.env.NEXT_PUBLIC_SITE_URL = 'https://www.cybernautme.com'
+
+    expect(getCanonicalURL('/cctv-support')).toBe('https://www.cybernautme.com/cctv-support/')
+    expect(getCanonicalURL('/search')).toBe('https://www.cybernautme.com/search/')
+    expect(getCanonicalURL('/posts')).toBe('https://www.cybernautme.com/posts/')
+    expect(getCanonicalURL('/posts/page/2')).toBe('https://www.cybernautme.com/posts/page/2/')
+    expect(getCanonicalURL('/posts/example-post/')).toBe(
+      'https://www.cybernautme.com/posts/example-post/',
+    )
   })
 })

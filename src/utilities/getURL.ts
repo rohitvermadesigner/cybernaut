@@ -48,6 +48,7 @@ export const getClientSideURL = () => {
 export const getCanonicalURL = (path = '/') => {
   const siteUrl = getServerSideURL()
   const canonicalPath = path.startsWith('/') ? path : `/${path}`
+  const normalizedPath = canonicalPath.replace(/\/+$/, '')
 
-  return `${siteUrl}${canonicalPath === '/' ? '/' : canonicalPath.replace(/\/+$/, '')}`
+  return `${siteUrl}${normalizedPath === '' ? '/' : `${normalizedPath}/`}`
 }
