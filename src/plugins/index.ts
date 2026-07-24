@@ -17,8 +17,12 @@ const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
   return doc?.title ? `${doc.title} | Cybernaut` : 'Cybernaut'
 }
 
-const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
+const generateURL: GenerateURL<Post | Page> = ({ collectionConfig, doc }) => {
   const url = getServerSideURL()
+
+  if (collectionConfig?.slug === 'pages' && doc?.slug === 'home') {
+    return `${url}/`
+  }
 
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
